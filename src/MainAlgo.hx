@@ -1,6 +1,7 @@
 package src;
 import graphic.WriterToConsole;
 import reader.ReaderFromConsole;
+import types.Symbol;
 
 /**
  * ...
@@ -8,13 +9,14 @@ import reader.ReaderFromConsole;
  */
 class MainAlgo
 {
-
+    private var currentVariable:Symbol; //
 	Reader reader = new ReaderFromConsole();
 	Writer writer = new WriterToConsole();
 	
 	public function new() 
 	{
-		reader.readNext()
+		currentVariable = reader.readNext();
+		if currentVariable
 	}
 	
 }
