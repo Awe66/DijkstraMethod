@@ -17,7 +17,7 @@ class ReaderFromConsole implements Reader
 	
 	public function readNext():Symbol
 	{
-		
+		return null;
 	}
 	
 }

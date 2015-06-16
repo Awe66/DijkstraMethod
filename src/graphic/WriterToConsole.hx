@@ -19,7 +19,7 @@ class WriterToConsole implements Writer
 	
 	public function add(operator:Operator):Bool 
 	{
-		
+		return true;
 	}
 	
 }
