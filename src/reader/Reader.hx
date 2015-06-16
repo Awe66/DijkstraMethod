@@ -1,5 +1,5 @@
 package reader;
-import src.Operator;
+import types.Operator;
 import types.Symbol;
 
 /**

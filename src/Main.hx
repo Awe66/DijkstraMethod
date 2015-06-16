@@ -22,5 +22,4 @@ import types.Operator;
 		// openfl.Assets.getBitmapData("img/assetname.jpg");
 	}
 	
-	
-	}
+}
