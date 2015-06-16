@@ -1,17 +1,16 @@
-package src;
+package types ;
 
 /**
  * ...
  * @author Awe66
  */
-class Operator
+class Operator extends Symbol
 {
-	public var operatorName:String;
 	private var priority:Int;
 	private var left:Bool;
-	public function new(operator:String, priority:Int, left:Bool) 
+	public function new(value:String, priority:Int, left:Bool) 
 	{
-		this.operatorName = operator;
+		super(value);
 		this.priority = priority;
 		this.left = left;
 	}

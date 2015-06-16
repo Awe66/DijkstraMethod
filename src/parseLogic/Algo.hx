@@ -1,7 +1,8 @@
 package parseLogic;
 import haxe.CallStack;
 import haxe.ds.GenericStack;
-import src.Operator;
+import types.Symbol;
+import types.Operator;
 import src.graphic.Writer;
 /**
  * ...

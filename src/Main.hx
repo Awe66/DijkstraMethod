@@ -3,7 +3,7 @@ package;
 import openfl.display.Sprite;
 import openfl.Lib;
 import parseLogic.Algo;
-import src.Operator;
+import types.Operator;
 
 /**
  * ...

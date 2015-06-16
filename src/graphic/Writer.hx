@@ -1,5 +1,5 @@
 package src.graphic;
-import src.Operator;
+import types.Operator;
 
 /**
  * @author Awe66
