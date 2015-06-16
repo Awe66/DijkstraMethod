@@ -1,8 +1,10 @@
 package;
 
+import graphic.WriterToConsole;
 import openfl.display.Sprite;
 import openfl.Lib;
 import parseLogic.Algo;
+import reader.ReaderFromConsole;
 import types.Operator;
 
 /**
@@ -19,4 +21,9 @@ class Main extends Sprite
 		// openfl.Assets.getBitmapData("img/assetname.jpg");
 	}
 
-}
+    Reader reader = new ReaderFromConsole;
+	Writer writer = new WriterToConsole;
+	
+	
+	
+	}
