@@ -1,4 +1,6 @@
 package reader;
+import haxe.xml.Check.Attrib;
+import types.Symbol;
 
 /**
  * ...
@@ -7,7 +9,13 @@ package reader;
 class ReaderFromConsole implements Reader
 {
 
+	
 	public function new() 
+	{
+		
+	}
+	
+	public function readNext():Symbol
 	{
 		
 	}
