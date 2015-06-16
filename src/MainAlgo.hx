@@ -14,7 +14,7 @@ class MainAlgo
 	
 	public function new() 
 	{
-		reader.readNext()
+	reader.readNext(
 	}
 	
 }
