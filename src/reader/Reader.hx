@@ -7,5 +7,5 @@ import types.Symbol;
  */
 interface Reader 
 {
-	public function readNext():types.Symbol;
+	public function readNext():Symbol;
 }
