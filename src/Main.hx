@@ -11,7 +11,8 @@ import types.Operator;
  * ...
  * @author Awe66
  */
-class Main extends Sprite 
+
+ class Main extends Sprite 
 {
 
 	public function new() 
@@ -20,10 +21,6 @@ class Main extends Sprite
 		// Assets:
 		// openfl.Assets.getBitmapData("img/assetname.jpg");
 	}
-
-    Reader reader = new ReaderFromConsole;
-	Writer writer = new WriterToConsole;
-	
 	
 	
 	}
