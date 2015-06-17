@@ -15,4 +15,9 @@ class Symbol
 		this.value = value;
 	}
 	
+	public function getValue():String
+	{
+		return value;
+	}
+	
 }
