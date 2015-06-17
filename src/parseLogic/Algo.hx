@@ -2,7 +2,6 @@ package parseLogic;
 import haxe.CallStack;
 import haxe.ds.GenericStack;
 import types.Symbol;
-import types.Operator;
 import src.graphic.Writer;
 /**
  * ...
@@ -10,31 +9,52 @@ import src.graphic.Writer;
  */
 class Algo
 {
-	private var mainStack:GenericStack<Operator>;
+	private var mainStack:GenericStack<Symbol>;
 	private var writer:Writer;
 
 	public function new(writer:Writer) 
 	{
-		mainStack = new GenericStack<Operator>();
+		mainStack = new GenericStack<Symbol>();
 		this.writer = writer;
 	}
 	
-	public function nextStep(operator:Operator) 
+	public function nextStep(symbol:Symbol) 
 	{
-		addToStack(operator);
+		addToStack(symbol);
 	}
 	
-	private function addToStack(newOperator:Operator)
-	{
-		var headOperator:Operator;
-		headOperator = mainStack.head.elt;
-		while ((headOperator.isLeft() && (headOperator.getPriority() >= newOperator.getPriority())) 
-				|| (!headOperator.isLeft() && (headOperator.getPriority() > newOperator.getPriority())))
+	private function addToStack(newOperator:Symbol)
+	{		
+		if (!newOperator.isOperator()) {
+			writer.add(newOperator);
+			return;
+		}
+		
+		var headOperator:Symbol;
+		headOperator = mainStack.first();
+		
+		if (newOperator.getValue() == ")") {
+			while (!mainStack.isEmpty() && headOperator.getValue() != "(") {
+				writer.add(mainStack.pop());
+				headOperator = mainStack.first();
+			}
+		}
+		
+		while (!mainStack.isEmpty() && ((headOperator.isLeft() && (headOperator.getPriority() >= newOperator.getPriority())) 
+				|| (!headOperator.isLeft() && (headOperator.getPriority() > newOperator.getPriority()))) )
 		{
 			writer.add(mainStack.pop());
-			headOperator = mainStack.head.elt;
+			headOperator = mainStack.first();
 		}
 		mainStack.add(newOperator);
+	}
+	
+	public function end()
+	{
+		while (!mainStack.isEmpty())
+		{
+			writer.add(mainStack.pop());
+		}
 	}
 	
 }

@@ -13,19 +13,28 @@ import reader.Reader;
 class MainAlgo
 {
     private var currentVariable:Symbol; //
-	var reader: Reader = new ReaderFromConsole();
-	var writer: Writer = new WriterToConsole();
-	var algo: Algo = new Algo(writer);
+	var reader: Reader;
+	var writer: Writer;
+	var algo: Algo;
 	public function new() 
 	{
-		currentVariable = reader.readNext();
-		if (currentVariable.getValue().charAt(0) < '9' && currentVariable.getValue().charAt(0) > '0') 
+		reader = new ReaderFromConsole();
+		writer = new WriterToConsole();
+		algo = new Algo(writer);
+	}
+	public function start() {
+		while (reader.hasNext())
 		{
-			writer.add(currentVariable);
-		} else 
-		
-		{
-			algo.nextStep(currentVariable);
+			currentVariable = reader.readNext();
+			if (!currentVariable.isOperator()) 
+			{
+				writer.add(currentVariable);
+			} else 
+			{
+				algo.nextStep(currentVariable);
+			}
 		}
-	
+		
+		algo.end();
+	}
 }

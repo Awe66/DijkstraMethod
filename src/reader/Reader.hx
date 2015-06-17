@@ -1,5 +1,4 @@
 package reader;
-import types.Operator;
 import types.Symbol;
 
 /**
@@ -8,4 +7,5 @@ import types.Symbol;
 interface Reader 
 {
 	public function readNext():Symbol;
+	public function hasNext():Bool;
 }

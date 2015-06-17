@@ -5,7 +5,7 @@ import openfl.display.Sprite;
 import openfl.Lib;
 import parseLogic.Algo;
 import reader.ReaderFromConsole;
-import types.Operator;
+import src.MainAlgo;
 
 /**
  * ...
@@ -18,6 +18,12 @@ import types.Operator;
 	public function new() 
 	{
 		super();
+		trace('hi');
+		var algo:MainAlgo = new MainAlgo();
+		trace('hi 1');
+		algo.start();
+		trace('hail');
+		return;
 		// Assets:
 		// openfl.Assets.getBitmapData("img/assetname.jpg");
 	}

@@ -1,7 +1,7 @@
 package graphic;
 
 import src.graphic.Writer;
-import types.Operator;
+import types.Symbol;
 
 /**
  * ...
@@ -17,8 +17,9 @@ class WriterToConsole implements Writer
 	
 	/* INTERFACE src.graphic.Writer */
 	
-	public function add(operator:Operator):Bool 
+	public function add(symbol:Symbol):Bool 
 	{
+		trace(symbol.getValue());
 		return true;
 	}
 	
