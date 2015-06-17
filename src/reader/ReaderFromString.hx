@@ -7,7 +7,7 @@ import types.Symbol;
  * ...
  * @author Awe66
  */
-class ReaderFromConsole implements Reader
+class ReaderFromString implements Reader
 {
 
 	var currentString:String;

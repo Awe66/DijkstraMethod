@@ -4,8 +4,10 @@ import graphic.WriterToConsole;
 import openfl.display.Sprite;
 import openfl.Lib;
 import parseLogic.Algo;
-import reader.ReaderFromConsole;
+import reader.ReaderFromString;
+import src.graphic.Writer;
 import src.MainAlgo;
+import reader.Reader;
 
 /**
  * ...
@@ -18,11 +20,10 @@ import src.MainAlgo;
 	public function new() 
 	{
 		super();
-		trace('hi');
-		var algo:MainAlgo = new MainAlgo();
-		trace('hi 1');
+		var reader:Reader = new ReaderFromString();
+		var writer:Writer = new WriterToConsole();
+		var algo:MainAlgo = new MainAlgo(reader, writer);
 		algo.start();
-		trace('hail');
 		return;
 		// Assets:
 		// openfl.Assets.getBitmapData("img/assetname.jpg");

@@ -1,8 +1,9 @@
 package src;
 import graphic.WriterToConsole;
 import parseLogic.Algo;
-import reader.ReaderFromConsole;
+import reader.ReaderFromString;
 import src.graphic.Writer;
+import graphic.WriterToView;
 import types.Symbol;
 import reader.Reader;
 
@@ -16,10 +17,10 @@ class MainAlgo
 	var reader: Reader;
 	var writer: Writer;
 	var algo: Algo;
-	public function new() 
+	public function new(reader:Reader, writer:Writer) 
 	{
-		reader = new ReaderFromConsole();
-		writer = new WriterToConsole();
+		this.reader = reader;
+		this.writer = writer;
 		algo = new Algo(writer);
 	}
 	public function start() {
