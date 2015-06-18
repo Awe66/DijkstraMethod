@@ -1,7 +1,8 @@
 package graphic;
-
 import openfl.display.InteractiveObject;
 import openfl.display.Sprite;
+import openfl.events.Event;
+import openfl.events.KeyboardEvent;
 import openfl.text.TextField;
 import src.graphic.Writer;
 import types.Symbol;
@@ -20,8 +21,15 @@ class WriterToView implements Writer
 	private var outputNumber:UInt = 0;
 	public function new() 
 	{
+		addEventListener(Event.ENTER_FRAME, onFrame);
+	}
+	
+	private function onFrame(e:Event)
+	{
 		
 	}
+	
+	private function 
 	
 	/* INTERFACE src.graphic.Writer */
 	var index:Int = 0;
@@ -43,9 +51,7 @@ class WriterToView implements Writer
 	
 	public function addToOutput(symbol:Symbol):Bool
 	{
-		
 		symbol.changeCoor(outputCoorX + outputNumber * 40, outputCoorY);
-		
 		outputNumber++;
 		return true;
 	}
