@@ -22,12 +22,10 @@ class WriterToView implements Writer
 	var index:Int = 0;
 	public function add(symbol:Symbol):Bool 
 	{
-		index += 30;
-		symbol.FONT_SIZE = 100;
+		index += 40;
+		symbol.FONT_SIZE = 40;
 		symbol.createTextView();
-		trace(symbol.FONT_SIZE);
 		symbol.showTextView();
-		
 		symbol.changeCoor(index, 20);
 		return true;
 	}

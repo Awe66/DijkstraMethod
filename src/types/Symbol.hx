@@ -29,7 +29,7 @@ class Symbol extends Sprite
 		this.priority = priority;
 		this.left = left;
 		operator = (priority >= 0);
-		FONT_SIZE = 40;
+		FONT_SIZE = 100;
 		FONT_COLOR = 0xFFFFFF;
 		
 		
@@ -38,14 +38,15 @@ class Symbol extends Sprite
 	public function createTextView() 
 	{
 		textField = new TextField();
-		textField.width = 30;
-		textField.height = 30;
+		symbolFormat =  new TextFormat("Times New Roman", FONT_SIZE, FONT_COLOR, true);
+		textField.defaultTextFormat = symbolFormat;
+		textField.width = 100;
+		textField.height = 100;
 		textField.text = value;
 		textField.textColor = 0xFFFFFF;
 		textField.x = corX;
 		textField.y = corY;
-		symbolFormat =  new TextFormat("Verdana", FONT_SIZE, FONT_COLOR, true);
-		textField.defaultTextFormat = symbolFormat;
+		textField.selectable = false;
 		this.addChild(textField);
 		textField.visible = false;
 	}
