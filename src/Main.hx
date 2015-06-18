@@ -1,6 +1,7 @@
 package;
 
 import graphic.WriterToConsole;
+import graphic.WriterToView;
 import openfl.display.Sprite;
 import openfl.Lib;
 import parseLogic.Algo;
@@ -21,8 +22,9 @@ import reader.Reader;
 	{
 		super();
 		var reader:Reader = new ReaderFromString();
-		var writer:Writer = new WriterToConsole();
+		var writer:Writer = new WriterToView();
 		var algo:MainAlgo = new MainAlgo(reader, writer);
+		addChild(algo);
 		algo.start();
 		return;
 		// Assets:
