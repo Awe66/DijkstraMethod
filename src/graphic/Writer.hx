@@ -1,5 +1,6 @@
 package src.graphic;
 
+import openfl.display.Sprite;
 import types.Symbol;
 
 /**

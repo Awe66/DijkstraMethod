@@ -1,6 +1,6 @@
 package;
 
-import graphic.GStack;
+import graphic.DrawBackground;
 import graphic.WriterToConsole;
 import graphic.WriterToView;
 import openfl.display.Sprite;
@@ -19,14 +19,16 @@ import reader.Reader;
 
  class Main extends Sprite 
 {
-
+	 private var background:DrawBackground;
 	public function new() 
 	{
 		super();
+		background = new DrawBackground();
 		var reader:Reader = new ReaderFromString();
 		var writer:Writer = new WriterToView();
 		var algo:MainAlgo = new MainAlgo(reader, writer);
 		addChild(algo);
+		addChild(background);
 		algo.start();
 		return;
 		
