@@ -1,4 +1,10 @@
 package graphic;
+<<<<<<< HEAD
+=======
+
+import openfl.Assets;
+import openfl.display.Bitmap;
+>>>>>>> origin/master
 import openfl.display.InteractiveObject;
 import openfl.display.Sprite;
 import openfl.events.Event;
@@ -11,21 +17,31 @@ import types.Symbol;
  * ...
  * @author Awe66
  */
-class WriterToView implements Writer
+class WriterToView implements Writer extends Sprite
 {
 
-	private var stackCoorX:UInt = 30;
-	private var stackCoorY:UInt = 280;
+	private var stackCoorX:UInt = 10;
+	private var stackCoorY:UInt = 150;
 	private var outputCoorY:UInt = 140;
 	private var outputCoorX:UInt = 150;
 	private var outputNumber:UInt = 0;
+	
+	
 	public function new() 
 	{
+<<<<<<< HEAD
 		addEventListener(Event.ENTER_FRAME, onFrame);
 	}
 	
 	private function onFrame(e:Event)
 	{
+=======
+	super();
+	var gstack:GStack = new GStack();
+	addChild(gstack);
+	gstack.x = stackCoorX;
+	gstack.y = stackCoorY;
+>>>>>>> origin/master
 		
 	}
 	

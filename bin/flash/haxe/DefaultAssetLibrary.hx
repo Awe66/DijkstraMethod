@@ -45,11 +45,17 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		#if flash
 		
+		className.set ("img/stack.png", __ASSET__img_stack_png);
+		type.set ("img/stack.png", AssetType.IMAGE);
 		
 		
 		#elseif html5
 		
 		var id;
+		id = "img/stack.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		
 		
 		var assetsPrefix = ApplicationMain.config.assetsPrefix;
@@ -64,11 +70,15 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if openfl
 		
 		
+		
 		#end
 		
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		
+		className.set ("img/stack.png", __ASSET__img_stack_png);
+		type.set ("img/stack.png", AssetType.IMAGE);
 		
 		
 		if (useManifest) {
@@ -670,9 +680,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if !display
 #if flash
 
+@:keep @:bind #if display private #end class __ASSET__img_stack_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 
 
 #elseif html5
+
 
 
 
@@ -683,6 +695,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if (windows || mac || linux)
 
 
+@:image("assets/img/stack.png") #if display private #end class __ASSET__img_stack_png extends lime.graphics.Image {}
 
 
 

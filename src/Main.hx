@@ -1,5 +1,6 @@
 package;
 
+import graphic.GStack;
 import graphic.WriterToConsole;
 import graphic.WriterToView;
 import openfl.display.Sprite;
@@ -28,8 +29,7 @@ import reader.Reader;
 		addChild(algo);
 		algo.start();
 		return;
-		// Assets:
-		// openfl.Assets.getBitmapData("img/assetname.jpg");
+		
 	}
 	
 }
