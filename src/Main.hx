@@ -3,6 +3,7 @@ package;
 import graphic.WriterToConsole;
 import graphic.WriterToView;
 import openfl.display.Sprite;
+import openfl.events.KeyboardEvent;
 import openfl.Lib;
 import parseLogic.Algo;
 import reader.ReaderFromString;

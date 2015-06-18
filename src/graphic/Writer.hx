@@ -8,5 +8,7 @@ import types.Symbol;
 interface Writer 
 {
 	public function add(symbol:Symbol):Bool;
+	public function addToStack(symbol:Symbol, number:Int):Bool;
+	public function addToOutput(symbol:Symbol):Bool;
 	
 }

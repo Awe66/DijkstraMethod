@@ -11,7 +11,7 @@ class Algo
 {
 	private var mainStack:GenericStack<Symbol>;
 	private var writer:Writer;
-
+	private var stackLength:Int;
 	public function new(writer:Writer) 
 	{
 		mainStack = new GenericStack<Symbol>();
@@ -26,7 +26,8 @@ class Algo
 	private function addToStack(newOperator:Symbol)
 	{		
 		if (!newOperator.isOperator()) {
-			writer.add(newOperator);
+			writer.addToOutput(newOperator);
+			stackLength++;
 			return;
 		}
 		
@@ -35,25 +36,37 @@ class Algo
 		
 		if (newOperator.getValue() == ")") {
 			while (!mainStack.isEmpty() && headOperator.getValue() != "(") {
-				writer.add(mainStack.pop());
+				writer.addToOutput(mainStack.pop());
+				stackLength--;
 				headOperator = mainStack.first();
 			}
+			return;
 		}
 		
 		while (!mainStack.isEmpty() && ((headOperator.isLeft() && (headOperator.getPriority() >= newOperator.getPriority())) 
 				|| (!headOperator.isLeft() && (headOperator.getPriority() > newOperator.getPriority()))) )
 		{
-			writer.add(mainStack.pop());
+			writer.addToOutput(mainStack.pop());
+			stackLength--;
 			headOperator = mainStack.first();
 		}
 		mainStack.add(newOperator);
+		stackLength++;
+		writer.addToStack(newOperator, stackLength);
 	}
 	
 	public function end()
 	{
+		var bufElement:Symbol;
 		while (!mainStack.isEmpty())
 		{
-			writer.add(mainStack.pop());
+			bufElement = mainStack.pop();
+			if (!(bufElement== null))
+			{
+				writer.addToOutput(bufElement);
+			} else {
+				break;
+			}
 		}
 	}
 	

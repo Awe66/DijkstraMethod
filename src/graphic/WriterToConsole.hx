@@ -22,5 +22,13 @@ class WriterToConsole implements Writer
 		trace(symbol.getValue());
 		return true;
 	}
+	public function addToOutput(symbol:Symbol) {
+		trace(symbol.getValue());
+		return true;
+	}
+	public function addToStack(symbol:Symbol, number:Int) {
+		return true;
+	}
+	
 	
 }
