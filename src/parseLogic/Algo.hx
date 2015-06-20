@@ -46,7 +46,7 @@ class Algo
 		}
 		
 		while (!mainStack.isEmpty() && ((headOperator.isLeft() && (headOperator.getPriority() >= newOperator.getPriority())) 
-				|| (!headOperator.isLeft() && (headOperator.getPriority() > newOperator.getPriority()))) )
+				|| (!headOperator.isLeft() && (headOperator.getPriority() > newOperator.getPriority()))) && newOperator.getValue()!=")")
 		{
 			writer.addToOutput(mainStack.pop());
 			stackLength--;
