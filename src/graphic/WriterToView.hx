@@ -19,12 +19,9 @@ class WriterToView implements Writer
 {
 	private var inputStringX:UInt = 190;
 	private var inputStringY:UInt = 100;
-	
-	private var stackCoorX:UInt = 70;
-	private var stackCoorY:UInt = 420;
-	
+		
 	private var outputCoorX:UInt = 190;
-	private var outputCoorY:UInt = 190;
+	private var outputCoorY:UInt = 300;
 	
 	private var outputDelta:UInt = 0;
 	private var background:DrawBackground;
@@ -43,8 +40,19 @@ class WriterToView implements Writer
 		
 		symbol.createTextView(symbolFormat);
 		symbol.showTextView();
+		addToSourceLine(symbol);
+		return true;
+	}
+	
+	public function addToSourceLine(symbol:Symbol)
+	{
 		symbol.changeCoor(inputStringX + index, inputStringY);
 		index += Std.int(symbolFormat.size)*symbol.getValue().length;
+	}
+	
+	public function endFirstPart():Bool
+	{
+		index = 0;
 		return true;
 	}
 	

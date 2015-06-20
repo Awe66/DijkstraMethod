@@ -15,6 +15,11 @@ class WriterToConsole implements Writer
 		
 	}
 	
+	public function endFirstPart():Bool
+	{
+		return true;
+	}
+	
 	/* INTERFACE src.graphic.Writer */
 	
 	public function add(symbol:Symbol):Bool 

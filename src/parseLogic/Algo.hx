@@ -70,6 +70,7 @@ class Algo
 				break;
 			}
 		}
+		writer.endFirstPart();
 	}
 	
 }
