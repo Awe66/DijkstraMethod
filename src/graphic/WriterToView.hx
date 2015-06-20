@@ -26,11 +26,11 @@ class WriterToView implements Writer
 	private var outputCoorY:UInt = 190;
 	
 	private var outputNumber:UInt = 0;
-	private var stack:DrawBackground;
+	private var background:DrawBackground;
 	
-	public function new() 
+	public function new(background:DrawBackground) 
 	{
-		
+		this.background = background;
 	}
 	
 	/* INTERFACE src.graphic.Writer */
@@ -38,6 +38,7 @@ class WriterToView implements Writer
 	public function add(symbol:Symbol):Bool 
 	{
 		symbol.FONT_SIZE = 40;
+		symbol.FONT_COLOR = 0x000000;
 		symbol.createTextView();
 		symbol.showTextView();
 		symbol.changeCoor(inputStringX + index, inputStringY);
@@ -47,7 +48,9 @@ class WriterToView implements Writer
 	
 	public function addToStack(symbol:Symbol, num:Int):Bool
 	{
-		symbol.changeCoor(stackCoorX, stackCoorY-num*40);
+		var symbolX:Int = Std.int(background.getStackX() + (background.getStackWight() - symbol.FONT_SIZE) / 2);
+		var symbolY:Int = Std.int(background.getStackY() + background.getStackHeight() - num * 40 - symbol.FONT_SIZE);
+		symbol.changeCoor(symbolX, symbolY);
 		return true;
 	}
 	

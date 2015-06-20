@@ -30,7 +30,7 @@ class Symbol extends Sprite
 		this.left = left;
 		operator = (priority >= 0);
 		FONT_SIZE = 100;
-		FONT_COLOR = 0xFFFFFF;
+		FONT_COLOR = 0x000000;
 		
 		
 	}
@@ -43,7 +43,6 @@ class Symbol extends Sprite
 		textField.width = 100;
 		textField.height = 100;
 		textField.text = value;
-		textField.textColor = 0xFFFFFF;
 		textField.x = corX;
 		textField.y = corY;
 		textField.selectable = false;

@@ -28,7 +28,8 @@ class MainAlgo extends Sprite
 		algo = new Algo(writer);
 		listOfSymbols = new List<Symbol>();
 	}
-	public function start() {
+	public function start()
+	{
 		while (reader.hasNext())
 		{
 			currentVariable = reader.readNext();
@@ -37,10 +38,12 @@ class MainAlgo extends Sprite
 			addChild(currentVariable);
 		}
 		addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+		
 	}
 	
 	
-	private function onKeyDown(e:KeyboardEvent) {
+	private function onKeyDown(e:KeyboardEvent) 
+	{
 		if (e.keyCode == 13) 
 		{
 			nextStep();

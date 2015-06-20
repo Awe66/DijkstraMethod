@@ -1,10 +1,12 @@
 package;
 
 import graphic.DrawBackground;
+import graphic.FirstScreen;
 import graphic.WriterToConsole;
 import graphic.WriterToView;
 import openfl.display.Sprite;
 import openfl.events.KeyboardEvent;
+import openfl.events.Event;
 import openfl.Lib;
 import parseLogic.Algo;
 import reader.ReaderFromString;
@@ -19,19 +21,35 @@ import reader.Reader;
 
  class Main extends Sprite 
 {
-	 private var background:DrawBackground;
+	 public var background:DrawBackground;
+	 private var firstScreen:FirstScreen;
+	 private var reader:Reader;
+	 private var algo:MainAlgo;
+	 private var writer:Writer;
 	public function new() 
 	{
 		super();
-		background = new DrawBackground();
-		var reader:Reader = new ReaderFromString();
-		var writer:Writer = new WriterToView();
-		var algo:MainAlgo = new MainAlgo(reader, writer);
-		addChild(algo);
-		addChild(background);
-		algo.start();
+		inputScreen();
 		return;
-		
 	}
-	
+	private function onStart(e:Event)
+	{
+		background = new DrawBackground();
+		writer = new WriterToView(background);
+		reader = new ReaderFromString(firstScreen.readString());
+		algo = new MainAlgo(reader, writer);
+		firstScreen.visible = false;
+		
+		addChild(background);
+		addChild(algo);
+		Lib.current.stage.focus = algo;
+		algo.start();
+	}
+
+	private function inputScreen()
+	{
+		firstScreen = new FirstScreen();
+		addChild(firstScreen);
+		firstScreen.addEventListener("read me", onStart);
+	}
 }

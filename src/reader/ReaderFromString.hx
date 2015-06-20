@@ -13,9 +13,10 @@ class ReaderFromString implements Reader
 	var currentString:String;
 	var index:Int;
 	var symbols:List<Symbol>;
-	public function new() 
+	public function new(inputString:String) 
 	{
-		currentString = "2^5^a+4*3>12!2*b#4";
+		//2^5^a+4*3>12!2*b#4
+		currentString = inputString;
 		index = -1;
 		symbols = new List<Symbol>();
 		symbols.push(new Symbol("+", 3, false));
