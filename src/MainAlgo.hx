@@ -27,7 +27,9 @@ class MainAlgo extends Sprite
 		this.writer = writer;
 		algo = new Algo(writer);
 		listOfSymbols = new List<Symbol>();
+		writer.printSignature();
 	}
+	
 	public function start()
 	{
 		while (reader.hasNext())

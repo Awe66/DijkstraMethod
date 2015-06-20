@@ -12,7 +12,7 @@ class ReaderFromString implements Reader
 
 	var currentString:String;
 	var index:Int;
-	var symbols:List<Symbol>;
+	private var symbols:List<Symbol>;
 	public function new(inputString:String) 
 	{
 		//2^5^a+4*3>12!2*b#4
@@ -30,8 +30,6 @@ class ReaderFromString implements Reader
 		symbols.push(new Symbol("<", 2, false));
 		symbols.push(new Symbol("#", 2, false));
 		symbols.push(new Symbol("!", 1, false));
-		
-		
 	}
 	
 	public function readNext():Symbol
@@ -51,6 +49,7 @@ class ReaderFromString implements Reader
 		}
 		return new Symbol(bufString, -1, true);
 	}
+	
 	
 	public function hasNext()
 	{
@@ -72,7 +71,6 @@ class ReaderFromString implements Reader
 		}
 		return false;
 	}
-	
 	private function getPriorityOfCurrentSymbol(currentSymbol:String):Int
 	{
 		var buf:Symbol;
@@ -84,6 +82,7 @@ class ReaderFromString implements Reader
 		}
 		return -1;
 	}
+
 	
 	private function isLeft(currentSymbol:String):Bool
 	{

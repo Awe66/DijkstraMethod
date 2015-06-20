@@ -8,6 +8,7 @@ import openfl.events.Event;
 import openfl.events.KeyboardEvent;
 import openfl.text.TextField;
 import openfl.text.TextFormat;
+import reader.Reader;
 import src.graphic.Writer;
 import types.Symbol;
 
@@ -22,6 +23,9 @@ class WriterToView implements Writer
 		
 	private var outputCoorX:UInt = 190;
 	private var outputCoorY:UInt = 300;
+	
+	private var outputSignatureX:UInt;
+	private var outputSignatureY:UInt;
 	
 	private var outputDelta:UInt = 0;
 	private var background:DrawBackground;
@@ -71,6 +75,10 @@ class WriterToView implements Writer
 		return true;
 	}
 	
-	
+	public function printSignature():Bool
+	{
+		var max:Int;
+		return true;
+	}
 	
 }

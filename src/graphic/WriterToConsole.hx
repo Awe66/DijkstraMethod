@@ -15,6 +15,11 @@ class WriterToConsole implements Writer
 		
 	}
 	
+	public function printSignature():Bool
+	{
+		return true;
+	}
+	
 	public function endFirstPart():Bool
 	{
 		return true;

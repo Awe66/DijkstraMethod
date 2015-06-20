@@ -41,7 +41,6 @@ import reader.Reader;
 		reader = new ReaderFromString(firstScreen.readString());
 		algo = new MainAlgo(reader, writer);
 		firstScreen.visible = false;
-		
 		addChild(background);
 		addChild(algo);
 		Lib.current.stage.focus = algo;

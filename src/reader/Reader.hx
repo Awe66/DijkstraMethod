@@ -8,4 +8,5 @@ interface Reader
 {
 	public function readNext():Symbol;
 	public function hasNext():Bool;
+	
 }
