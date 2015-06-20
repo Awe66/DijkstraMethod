@@ -40,6 +40,8 @@ class Algo
 				stackLength--;
 				headOperator = mainStack.first();
 			}
+			newOperator.dontShowTextView();
+			headOperator.dontShowTextView();
 			return;
 		}
 		

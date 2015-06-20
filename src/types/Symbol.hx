@@ -17,10 +17,6 @@ class Symbol extends Sprite
 	private var left:Bool;
 	private var textField:TextField;
 	
-	public var FONT_SIZE:Int;
-	public var FONT_COLOR:Int;
-	
-	private var symbolFormat:TextFormat;
 	
 	public function new(value:String, priority:Int, left:Bool) 
 	{
@@ -29,16 +25,11 @@ class Symbol extends Sprite
 		this.priority = priority;
 		this.left = left;
 		operator = (priority >= 0);
-		FONT_SIZE = 100;
-		FONT_COLOR = 0x000000;
-		
-		
 	}
 	
-	public function createTextView() 
+	public function createTextView(symbolFormat:TextFormat) 
 	{
 		textField = new TextField();
-		symbolFormat =  new TextFormat("Times New Roman", FONT_SIZE, FONT_COLOR, true);
 		textField.defaultTextFormat = symbolFormat;
 		textField.width = 100;
 		textField.height = 100;

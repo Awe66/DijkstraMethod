@@ -8,6 +8,7 @@ import openfl.display.Sprite;
 import openfl.events.KeyboardEvent;
 import openfl.events.Event;
 import openfl.Lib;
+import openfl.text.TextFormat;
 import parseLogic.Algo;
 import reader.ReaderFromString;
 import src.graphic.Writer;
@@ -26,6 +27,7 @@ import reader.Reader;
 	 private var reader:Reader;
 	 private var algo:MainAlgo;
 	 private var writer:Writer;
+	 private var symbolFormat:TextFormat = new TextFormat("Times New Roman", 50, 0x000000, true);
 	public function new() 
 	{
 		super();
@@ -35,7 +37,7 @@ import reader.Reader;
 	private function onStart(e:Event)
 	{
 		background = new DrawBackground();
-		writer = new WriterToView(background);
+		writer = new WriterToView(background, symbolFormat);
 		reader = new ReaderFromString(firstScreen.readString());
 		algo = new MainAlgo(reader, writer);
 		firstScreen.visible = false;
@@ -48,7 +50,7 @@ import reader.Reader;
 
 	private function inputScreen()
 	{
-		firstScreen = new FirstScreen();
+		firstScreen = new FirstScreen(symbolFormat);
 		addChild(firstScreen);
 		firstScreen.addEventListener("read me", onStart);
 	}

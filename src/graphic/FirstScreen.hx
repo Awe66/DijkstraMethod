@@ -15,12 +15,10 @@ class FirstScreen extends Sprite
 	private var InputTextField:TextField;
 	private var textWidth:Int = 800;
 	private var textHeight:Int = 50;
-	private var symbolFormat:TextFormat;
 
-	public function new() 
+	public function new(symbolFormat:TextFormat) 
 	{
 		super();
-		symbolFormat =  new TextFormat('Times New Roman', 40, 0x000000, true);
 		InputTextField = new TextField();
 		InputTextField.type = TextFieldType.INPUT;
 		InputTextField.maxChars = 20;
