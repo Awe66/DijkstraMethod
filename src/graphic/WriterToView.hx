@@ -20,7 +20,9 @@ class WriterToView implements Writer
 {
 	private var inputStringX:UInt = 190;
 	private var inputStringY:UInt = 100;
-		
+	
+	private var space:Int = 15;
+	
 	private var outputCoorX:UInt = 190;
 	private var outputCoorY:UInt = 300;
 	
@@ -51,7 +53,7 @@ class WriterToView implements Writer
 	public function addToSourceLine(symbol:Symbol)
 	{
 		symbol.changeCoor(inputStringX + index, inputStringY);
-		index += Std.int(symbolFormat.size)*symbol.getValue().length;
+		index += Std.int(symbol.getTextWidth())+space;
 	}
 	
 	public function endFirstPart():Bool
@@ -71,7 +73,7 @@ class WriterToView implements Writer
 	public function addToOutput(symbol:Symbol):Bool
 	{
 		symbol.changeCoor(outputCoorX + outputDelta, outputCoorY);
-		outputDelta += Std.int(symbolFormat.size) * symbol.getValue().length;
+		outputDelta += symbol.getTextWidth()+space;
 		return true;
 	}
 	

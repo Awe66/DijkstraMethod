@@ -1,6 +1,7 @@
 package types;
 import openfl.display.Sprite;
 import openfl.text.TextField;
+import openfl.text.TextFieldAutoSize;
 import openfl.text.TextFormat;
 
 /**
@@ -31,7 +32,7 @@ class Symbol extends Sprite
 	{
 		textField = new TextField();
 		textField.defaultTextFormat = symbolFormat;
-		textField.width = 100;
+		textField.autoSize = TextFieldAutoSize.LEFT;
 		textField.height = 100;
 		textField.text = value;
 		textField.x = corX;
@@ -39,6 +40,11 @@ class Symbol extends Sprite
 		textField.selectable = false;
 		this.addChild(textField);
 		textField.visible = false;
+	}
+	
+	public function getTextWidth():Int
+	{
+		return Std.int(textField.textWidth);
 	}
 	
 	public function showTextView()
