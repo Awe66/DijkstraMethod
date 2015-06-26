@@ -71,6 +71,7 @@ class ReaderFromString implements Reader
 		}
 		return false;
 	}
+	
 	private function getPriorityOfCurrentSymbol(currentSymbol:String):Int
 	{
 		var buf:Symbol;
