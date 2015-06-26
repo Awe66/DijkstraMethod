@@ -2,7 +2,8 @@ package src;
 import graphic.WriterToConsole;
 import openfl.display.Sprite;
 import openfl.events.KeyboardEvent;
-import parseLogic.Algo;
+import parseLogic.ParseAlgo;
+import reparseLogic.ReparseAlgo;
 import reader.ReaderFromString;
 import src.graphic.Writer;
 import graphic.WriterToView;
@@ -15,17 +16,19 @@ import reader.Reader;
  */
 class MainAlgo extends Sprite
 {
-    private var currentVariable:Symbol; //
+    private var currentVariable:Symbol; 
 	var reader: Reader;
 	var writer: Writer;
-	var algo: Algo;
+	var parseAlgo: ParseAlgo;
+	var reparseAlgo: ReparseAlgo;
+	
 	private var listOfSymbols:List<Symbol>;
 	public function new(reader:Reader, writer:Writer) 
 	{
 		super();
 		this.reader = reader;
 		this.writer = writer;
-		algo = new Algo(writer);
+		parseAlgo = new ParseAlgo(writer);
 		listOfSymbols = new List<Symbol>();
 		writer.printSignature();
 	}
@@ -56,7 +59,7 @@ class MainAlgo extends Sprite
 	{
 		trace('Enter pressed');
 		if (listOfSymbols.isEmpty()) {
-			algo.end();
+			parseAlgo.end();
 			return;
 		}
 		
@@ -67,7 +70,7 @@ class MainAlgo extends Sprite
 			writer.addToOutput(currentVariable);
 		} else 
 		{
-			algo.nextStep(currentVariable);
+			parseAlgo.nextStep(currentVariable);
 		}
 		
 	}

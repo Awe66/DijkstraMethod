@@ -9,7 +9,7 @@ import openfl.events.KeyboardEvent;
 import openfl.events.Event;
 import openfl.Lib;
 import openfl.text.TextFormat;
-import parseLogic.Algo;
+import parseLogic.ParseAlgo;
 import reader.ReaderFromString;
 import src.graphic.Writer;
 import src.MainAlgo;
