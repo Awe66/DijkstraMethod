@@ -21,6 +21,9 @@ class Algo
 	}
 	
 	public function nextStep()
+	{
+		addToStack(nextSymbol:Symbol);
+	}
 	
 	private function addToStack(symbol:Symbol)
 	{
@@ -44,4 +47,12 @@ class Algo
 		}
 	}
 	
+	public function end() 	
+	{
+		if (stackLength != 1) {
+			//exception
+		} else {
+			//all is good
+		}
+	}
 }
