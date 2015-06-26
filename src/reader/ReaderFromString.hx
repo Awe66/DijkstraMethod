@@ -2,6 +2,7 @@ package reader;
 import haxe.io.Input;
 import haxe.xml.Check.Attrib;
 import types.Symbol;
+import reader.ReaderForOperator;
 
 /**
  * ...
@@ -84,7 +85,6 @@ class ReaderFromString implements Reader
 		return -1;
 	}
 
-	
 	private function isLeft(currentSymbol:String):Bool
 	{
 		var buf:Symbol;
@@ -97,4 +97,6 @@ class ReaderFromString implements Reader
 		return false;
 	}
 	
+	
+
 }
