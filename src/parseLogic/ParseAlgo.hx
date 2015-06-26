@@ -1,4 +1,5 @@
 package parseLogic;
+
 import haxe.CallStack;
 import haxe.ds.GenericStack;
 import types.Symbol;
@@ -7,7 +8,7 @@ import src.graphic.Writer;
  * ...
  * @author Awe66
  */
-class Algo
+class ParseAlgo
 {
 	private var mainStack:GenericStack<Symbol>;
 	private var writer:Writer;
