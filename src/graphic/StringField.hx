@@ -10,7 +10,7 @@ import openfl.text.TextFormat;
  * ...
  * @author Awe66
  */
-class FirstScreen extends Sprite
+class StringField extends Sprite
 {
 	private var InputTextField:TextField;
 	private var textWidth:Int = 800;

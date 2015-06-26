@@ -1,7 +1,7 @@
 package;
 
 import graphic.DrawBackground;
-import graphic.FirstScreen;
+import graphic.StringField;
 import graphic.WriterToConsole;
 import graphic.WriterToView;
 import openfl.display.Sprite;
@@ -23,7 +23,7 @@ import reader.Reader;
  class Main extends Sprite 
 {
 	 public var background:DrawBackground;
-	 private var firstScreen:FirstScreen;
+	 private var firstScreen:StringField;
 	 private var reader:Reader;
 	 private var algo:MainAlgo;
 	 private var writer:Writer;
@@ -49,7 +49,7 @@ import reader.Reader;
 
 	private function inputScreen()
 	{
-		firstScreen = new FirstScreen(symbolFormat);
+		firstScreen = new StringField(symbolFormat);
 		addChild(firstScreen);
 		firstScreen.addEventListener("read me", onStart);
 	}
