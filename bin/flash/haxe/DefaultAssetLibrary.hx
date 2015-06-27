@@ -45,6 +45,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		#if flash
 		
+		className.set ("img/endsignaturebutton.png", __ASSET__img_endsignaturebutton_png);
+		type.set ("img/endsignaturebutton.png", AssetType.IMAGE);
+		className.set ("img/radiobutton_empty.png", __ASSET__img_radiobutton_empty_png);
+		type.set ("img/radiobutton_empty.png", AssetType.IMAGE);
+		className.set ("img/radiobutton_fill.png", __ASSET__img_radiobutton_fill_png);
+		type.set ("img/radiobutton_fill.png", AssetType.IMAGE);
 		className.set ("img/stack.png", __ASSET__img_stack_png);
 		type.set ("img/stack.png", AssetType.IMAGE);
 		
@@ -52,6 +58,18 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#elseif html5
 		
 		var id;
+		id = "img/endsignaturebutton.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/radiobutton_empty.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/radiobutton_fill.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		id = "img/stack.png";
 		path.set (id, id);
 		
@@ -71,11 +89,23 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
 		#end
 		
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		
+		className.set ("img/endsignaturebutton.png", __ASSET__img_endsignaturebutton_png);
+		type.set ("img/endsignaturebutton.png", AssetType.IMAGE);
+		
+		className.set ("img/radiobutton_empty.png", __ASSET__img_radiobutton_empty_png);
+		type.set ("img/radiobutton_empty.png", AssetType.IMAGE);
+		
+		className.set ("img/radiobutton_fill.png", __ASSET__img_radiobutton_fill_png);
+		type.set ("img/radiobutton_fill.png", AssetType.IMAGE);
 		
 		className.set ("img/stack.png", __ASSET__img_stack_png);
 		type.set ("img/stack.png", AssetType.IMAGE);
@@ -680,10 +710,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if !display
 #if flash
 
+@:keep @:bind #if display private #end class __ASSET__img_endsignaturebutton_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_radiobutton_empty_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_radiobutton_fill_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_stack_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 
 
 #elseif html5
+
+
+
 
 
 
@@ -695,6 +731,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if (windows || mac || linux)
 
 
+@:image("assets/img/endsignaturebutton.png") #if display private #end class __ASSET__img_endsignaturebutton_png extends lime.graphics.Image {}
+@:image("assets/img/radiobutton_empty.png") #if display private #end class __ASSET__img_radiobutton_empty_png extends lime.graphics.Image {}
+@:image("assets/img/radiobutton_fill.png") #if display private #end class __ASSET__img_radiobutton_fill_png extends lime.graphics.Image {}
 @:image("assets/img/stack.png") #if display private #end class __ASSET__img_stack_png extends lime.graphics.Image {}
 
 

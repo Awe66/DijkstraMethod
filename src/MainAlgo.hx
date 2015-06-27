@@ -82,6 +82,7 @@ class MainAlgo extends Sprite
 			reparseAlgo.nextStep(currentVariable);	
 		}
 		if (salu && listOfSymbols.isEmpty()) {
+			reparseAlgo.end();
 			return;
 		}
 	}
