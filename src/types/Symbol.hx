@@ -32,7 +32,7 @@ class Symbol extends Sprite
 	{
 		textField = new TextField();
 		textField.defaultTextFormat = symbolFormat;
-		textField.autoSize = TextFieldAutoSize.LEFT;
+		textField.autoSize = TextFieldAutoSize.RIGHT;
 		textField.height = 100;
 		textField.text = value;
 		textField.x = corX;

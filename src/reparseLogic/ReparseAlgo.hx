@@ -2,6 +2,8 @@ package reparseLogic;
 
 import haxe.CallStack;
 import haxe.ds.GenericStack;
+import openfl.display.Sprite;
+import openfl.text.TextFormat;
 import types.Symbol;
 import src.graphic.Writer;
 
@@ -9,7 +11,7 @@ import src.graphic.Writer;
  * ...
  * @author Awe66
  */
-class ReparseAlgo
+class ReparseAlgo extends Sprite
 {
 	private var mainStack:GenericStack<Symbol>;
 	private var writer:Writer;
@@ -17,6 +19,7 @@ class ReparseAlgo
 	
 	public function new(writer:Writer) 
 	{
+		super();
 		mainStack = new GenericStack<Symbol>();
 		this.writer = writer;
 	}
@@ -40,17 +43,29 @@ class ReparseAlgo
 				var firstElement:Symbol = mainStack.pop();
 				var secondElement:Symbol = mainStack.pop();
 				var newSymbol:Symbol = makeOperation(firstElement, secondElement, symbol);
+				
+				
 				firstElement.dontShowTextView();
 				secondElement.dontShowTextView();
-				stackLength-=2;
+				symbol.dontShowTextView();
+				
+				stackLength -= 2;
+				trace(1);
+				
+				writer.add(newSymbol);
+				mainStack.add(newSymbol);
+				addChild(newSymbol);
+				trace(2);
 				writer.addToStack(newSymbol, stackLength);
+				trace(3);
+				stackLength++;
 			}
 		}
 	}
 	
 	private function makeOperation(firstElement:Symbol, secondElement:Symbol, symbol:Symbol):Symbol
 	{
-		return new Symbol(firstElement.getValue() + symbol.getValue() + secondElement.getValue(), -1, true);
+		return new Symbol(secondElement.getValue() + symbol.getValue() + firstElement.getValue(), -1, true);
 	}
 	
 	public function end() 	
