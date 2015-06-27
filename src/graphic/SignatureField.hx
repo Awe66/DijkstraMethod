@@ -16,7 +16,6 @@ import openfl.display.Bitmap;
 class SignatureField extends Sprite
 {
 
-
 	private var InputTextField:TextField;
 	private static var textWidth:Int = 800;
 	private static  var textHeight:Int = 50; 
@@ -29,6 +28,10 @@ class SignatureField extends Sprite
 	private static var ButR_Y:Int = 100;
 	private static var ButE_X:Int = 250;
 	private static var ButE_Y:Int = 100;
+	public var leftpressed:Bool = false;
+	public var rightpressed:Bool = false;
+	private var endpressed:Bool = false;
+	public var priority:Int = 0;
 	
 	public function new(symbolFormat:TextFormat) 
 	{
@@ -52,6 +55,8 @@ class SignatureField extends Sprite
 	}
 	
 	private function onMouseDownLeft(e:Event){
+		leftpressed = true;
+		rightpressed = false;
 		buttonLeft = new Bitmap(Assets.getBitmapData('radiobutton_fill.png'));
 		buttonRight = new Bitmap(Assets.getBitmapData('radiobutton_empty.png'));
 		addChild(buttonLeft);
@@ -59,6 +64,8 @@ class SignatureField extends Sprite
 	}
 	
 	private function onMouseDownRight(e:Event) {
+		rightpressed = true;
+		leftpressed = false;
 		buttonLeft = new Bitmap(Assets.getBitmapData('img/radiobutton_empty.png'));
 		buttonRight = new Bitmap(Assets.getBitmapData('img/radiobutton_fill.png'));
 		addChild(buttonLeft);
@@ -66,6 +73,7 @@ class SignatureField extends Sprite
 	}
 	
 	private function onMouseDownEnd(e:Event){
+		endpressed = true;
 		removeChild(buttonLeft);
 		removeChild(buttonRight);
 		removeChild(buttonEnd);
@@ -77,16 +85,19 @@ class SignatureField extends Sprite
 		graphics.beginFill(0xFFFFFFF);
 		graphics.drawRect(0,0,3000, 3000);
 	}
-	
+			
 	private function onKeyDown(e:KeyboardEvent) 
 	{
 		if (e.keyCode == 13) {
-			if (InputTextField.text.length == 0) {
-				InputTextField.text = 'Please print something';
-				return;
+			while (endpressed == false) {
+			
+				if (InputTextField.text.length == 0) {
+					InputTextField.text = 'Please print something';
+					return;
+				} else {
+				priority++;
+				}
 			}
-			trace('event');
-			dispatchEvent(new Event("read me"));
 		}
 	}	
 
@@ -105,4 +116,9 @@ class SignatureField extends Sprite
 		addChild(buttonRight);
 		addChild(buttonEnd);
 		}
+
+		public function readCurrentString():String
+	{
+		return InputTextField.text;
+	}	
 }
