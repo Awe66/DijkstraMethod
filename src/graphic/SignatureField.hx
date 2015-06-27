@@ -48,7 +48,7 @@ class SignatureField extends Sprite
 		addChild(InputTextField);
 		buttonLeft.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDownLeft);
 		buttonRight.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDownRight);
-		buttonEnd.addEventListener(MouseEvent.MOUSE_DOWN, OnMouseDownEnd);
+		buttonEnd.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDownEnd);
 	}
 	
 	private function onMouseDownLeft(e:Event){
