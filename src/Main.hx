@@ -2,6 +2,7 @@ package;
 
 import graphic.DrawBackground;
 import graphic.StringField;
+import graphic.SignatureField;
 import graphic.WriterToConsole;
 import graphic.WriterToView;
 import openfl.display.Sprite;
@@ -23,7 +24,7 @@ import reader.Reader;
  class Main extends Sprite 
 {
 	 public var background:DrawBackground;
-	 private var firstScreen:StringField;
+	 private var stringField:StringField;
 	 private var reader:Reader;
 	 private var algo:MainAlgo;
 	 private var writer:Writer;
@@ -31,26 +32,26 @@ import reader.Reader;
 	public function new() 
 	{
 		super();
-		inputScreen();
+		inputStringField();
 		return;
 	}
 	private function onStart(e:Event)
 	{
 		background = new DrawBackground();
 		writer = new WriterToView(background, symbolFormat);
-		reader = new ReaderFromString(firstScreen.readString());
+		reader = new ReaderFromString(stringField.readString());
 		algo = new MainAlgo(reader, writer);
-		firstScreen.visible = false;
+		stringField.visible = false;
 		addChild(background);
 		addChild(algo);
 		Lib.current.stage.focus = algo;
 		algo.start();
 	}
 
-	private function inputScreen()
+	private function inputStringField()
 	{
-		firstScreen = new StringField(symbolFormat);
-		addChild(firstScreen);
-		firstScreen.addEventListener("read me", onStart);
+		stringField = new StringField(symbolFormat);
+		addChild(stringField);
+		stringField.addEventListener("read me", onStart);
 	}
 }

@@ -13,13 +13,17 @@ class DrawBackground extends Sprite
 	private var stack:Bitmap;
 	private var stackX:Int = 40;
 	private var stackY:Int = 50;
+			
 	public function new() 
 	{
 		super();
 		drawStack();
 		drawBack();
+		
+		
 	}
-	
+		
+		
 	private function drawStack() 
 	{
 		stack = new Bitmap(Assets.getBitmapData('img/stack.png'));
