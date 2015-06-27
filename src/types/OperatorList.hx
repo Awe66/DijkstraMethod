@@ -12,14 +12,12 @@ class OperatorList
 	private var operators:List<Symbol>;
 	private var curSymbol:Symbol;
 	private var i:Int = 0;
-	var signField: SignatureField;
 	
 	
 	public function new() 
 	{
-		signField = new SignatureField();
 		operators = new List<Symbol>();
-		currentString = signField.readCurrentString();
+		currentString = SignatureField.readCurrentString();
 		readOperator();
 	}
 	
@@ -30,7 +28,7 @@ class OperatorList
 		bufString += currentString.charAt(i);
 		i++;
 		if(bufString != " ") { 
-		curSymbol =  new Symbol(bufString, signField.priority, signField.leftpressed);
+		curSymbol =  new Symbol(bufString, SignatureField.priority, SignatureField.leftpressed);
 		operators.push(curSymbol);
 		} else {
 		i++;
@@ -39,8 +37,8 @@ class OperatorList
       }
 	}
 	
-	public function getOperatorList():List<Symbol> {
-		return operators;		
+	public static function getOperatorList():List<Symbol> {
+		return  operators;		
 	}
 	
 }

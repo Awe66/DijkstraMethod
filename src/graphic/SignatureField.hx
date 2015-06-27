@@ -28,10 +28,10 @@ class SignatureField extends Sprite
 	private static var ButR_Y:Int = 100;
 	private static var ButE_X:Int = 250;
 	private static var ButE_Y:Int = 100;
-	public var leftpressed:Bool = false;
+	public static var leftpressed:Bool = false;
 	public var rightpressed:Bool = false;
 	private var endpressed:Bool = false;
-	public var priority:Int = 0;
+	public static var priority:Int = 0;
 	
 	public function new(symbolFormat:TextFormat) 
 	{
@@ -117,7 +117,7 @@ class SignatureField extends Sprite
 		addChild(buttonEnd);
 		}
 
-		public function readCurrentString():String
+		public static function readCurrentString():String
 	{
 		return InputTextField.text;
 	}	
