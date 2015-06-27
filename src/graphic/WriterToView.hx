@@ -33,10 +33,13 @@ class WriterToView implements Writer
 	private var background:DrawBackground;
 	private var symbolFormat:TextFormat;
 	
+	public var outputList:List<Symbol>;
+	
 	public function new(background:DrawBackground, symbolFormat:TextFormat) 
 	{
 		this.background = background;
 		this.symbolFormat = symbolFormat;
+		outputList = new List<Symbol>();
 	}
 	
 	/* INTERFACE src.graphic.Writer */
@@ -73,7 +76,8 @@ class WriterToView implements Writer
 	public function addToOutput(symbol:Symbol):Bool
 	{
 		symbol.changeCoor(outputCoorX + outputDelta, outputCoorY);
-		outputDelta += symbol.getTextWidth()+space;
+		outputDelta += symbol.getTextWidth() + space;
+		outputList.add(symbol);
 		return true;
 	}
 	

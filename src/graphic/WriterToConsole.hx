@@ -10,6 +10,7 @@ import types.Symbol;
 class WriterToConsole implements Writer
 {
 
+	public var outputList:List<Symbol>;
 	public function new() 
 	{
 		

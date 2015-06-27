@@ -9,6 +9,7 @@ import types.Symbol;
  */
 interface Writer 
 {
+	public var outputList:List<Symbol>;
 	public function add(symbol:Symbol):Bool;
 	public function addToStack(symbol:Symbol, number:Int):Bool;
 	public function addToOutput(symbol:Symbol):Bool;

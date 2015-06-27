@@ -28,7 +28,7 @@ import reader.Reader;
 	 private var reader:Reader;
 	 private var algo:MainAlgo;
 	 private var writer:Writer;
-	 private var symbolFormat:TextFormat = new TextFormat("Times New Roman", 50, 0x000000, true);
+	 public var symbolFormat:TextFormat = new TextFormat("Times New Roman", 50, 0x000000, true);
 	public function new() 
 	{
 		super();
