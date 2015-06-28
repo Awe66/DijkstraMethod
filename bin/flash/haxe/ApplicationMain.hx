@@ -38,19 +38,11 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("img/radiobutton_empty.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
 		urls.push ("img/radiobutton_empty_left.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
 		urls.push ("img/radiobutton_empty_right.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("img/radiobutton_fill.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
