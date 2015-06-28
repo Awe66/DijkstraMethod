@@ -136,7 +136,8 @@ class SignatureField extends Sprite
 
 	public function readCurrentString():String
 	{
-		return InputTextField.text;
 		InputTextField.text = "";
+		return InputTextField.text;
+		
 	}	
 }
