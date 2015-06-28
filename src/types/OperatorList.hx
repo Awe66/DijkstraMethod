@@ -17,6 +17,8 @@ class OperatorList
 	public function new(signField:SignatureField) 
 	{
 		operators = new List<Symbol>();
+		operators.add(new Symbol("(", 100, true));
+		operators.add(new Symbol(")", 100, true));
 		this.signField = signField;
 	}
 	
