@@ -49,8 +49,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/endsignaturebutton.png", AssetType.IMAGE);
 		className.set ("img/radiobutton_empty.png", __ASSET__img_radiobutton_empty_png);
 		type.set ("img/radiobutton_empty.png", AssetType.IMAGE);
+		className.set ("img/radiobutton_empty_left.png", __ASSET__img_radiobutton_empty_left_png);
+		type.set ("img/radiobutton_empty_left.png", AssetType.IMAGE);
+		className.set ("img/radiobutton_empty_right.png", __ASSET__img_radiobutton_empty_right_png);
+		type.set ("img/radiobutton_empty_right.png", AssetType.IMAGE);
 		className.set ("img/radiobutton_fill.png", __ASSET__img_radiobutton_fill_png);
 		type.set ("img/radiobutton_fill.png", AssetType.IMAGE);
+		className.set ("img/radiobutton_fill_left.png", __ASSET__img_radiobutton_fill_left_png);
+		type.set ("img/radiobutton_fill_left.png", AssetType.IMAGE);
+		className.set ("img/radiobutton_fill_right.png", __ASSET__img_radiobutton_fill_right_png);
+		type.set ("img/radiobutton_fill_right.png", AssetType.IMAGE);
 		className.set ("img/stack.png", __ASSET__img_stack_png);
 		type.set ("img/stack.png", AssetType.IMAGE);
 		
@@ -66,7 +74,23 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "img/radiobutton_empty_left.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/radiobutton_empty_right.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		id = "img/radiobutton_fill.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/radiobutton_fill_left.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/radiobutton_fill_right.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -92,6 +116,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
+		
 		#end
 		
 		#if (windows || mac || linux)
@@ -104,8 +132,20 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("img/radiobutton_empty.png", __ASSET__img_radiobutton_empty_png);
 		type.set ("img/radiobutton_empty.png", AssetType.IMAGE);
 		
+		className.set ("img/radiobutton_empty_left.png", __ASSET__img_radiobutton_empty_left_png);
+		type.set ("img/radiobutton_empty_left.png", AssetType.IMAGE);
+		
+		className.set ("img/radiobutton_empty_right.png", __ASSET__img_radiobutton_empty_right_png);
+		type.set ("img/radiobutton_empty_right.png", AssetType.IMAGE);
+		
 		className.set ("img/radiobutton_fill.png", __ASSET__img_radiobutton_fill_png);
 		type.set ("img/radiobutton_fill.png", AssetType.IMAGE);
+		
+		className.set ("img/radiobutton_fill_left.png", __ASSET__img_radiobutton_fill_left_png);
+		type.set ("img/radiobutton_fill_left.png", AssetType.IMAGE);
+		
+		className.set ("img/radiobutton_fill_right.png", __ASSET__img_radiobutton_fill_right_png);
+		type.set ("img/radiobutton_fill_right.png", AssetType.IMAGE);
 		
 		className.set ("img/stack.png", __ASSET__img_stack_png);
 		type.set ("img/stack.png", AssetType.IMAGE);
@@ -712,11 +752,19 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 @:keep @:bind #if display private #end class __ASSET__img_endsignaturebutton_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_radiobutton_empty_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_radiobutton_empty_left_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_radiobutton_empty_right_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_radiobutton_fill_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_radiobutton_fill_left_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_radiobutton_fill_right_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_stack_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 
 
 #elseif html5
+
+
+
+
 
 
 
@@ -733,7 +781,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 @:image("assets/img/endsignaturebutton.png") #if display private #end class __ASSET__img_endsignaturebutton_png extends lime.graphics.Image {}
 @:image("assets/img/radiobutton_empty.png") #if display private #end class __ASSET__img_radiobutton_empty_png extends lime.graphics.Image {}
+@:image("assets/img/radiobutton_empty_left.png") #if display private #end class __ASSET__img_radiobutton_empty_left_png extends lime.graphics.Image {}
+@:image("assets/img/radiobutton_empty_right.png") #if display private #end class __ASSET__img_radiobutton_empty_right_png extends lime.graphics.Image {}
 @:image("assets/img/radiobutton_fill.png") #if display private #end class __ASSET__img_radiobutton_fill_png extends lime.graphics.Image {}
+@:image("assets/img/radiobutton_fill_left.png") #if display private #end class __ASSET__img_radiobutton_fill_left_png extends lime.graphics.Image {}
+@:image("assets/img/radiobutton_fill_right.png") #if display private #end class __ASSET__img_radiobutton_fill_right_png extends lime.graphics.Image {}
 @:image("assets/img/stack.png") #if display private #end class __ASSET__img_stack_png extends lime.graphics.Image {}
 
 

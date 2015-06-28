@@ -118,11 +118,11 @@ class SignatureField extends Sprite
 	
 	public function drawButtons()
 	{
-		buttonLeft = new Button(new Bitmap(Assets.getBitmapData('img/radiobutton_empty.png')), ButL_X, ButL_Y) ;
-		buttonRight = new Button(new Bitmap(Assets.getBitmapData('img/radiobutton_empty.png')), ButR_X, ButR_Y);
+		buttonLeft = new Button(new Bitmap(Assets.getBitmapData('img/radiobutton_empty_left.png')), ButL_X, ButL_Y) ;
+		buttonRight = new Button(new Bitmap(Assets.getBitmapData('img/radiobutton_empty_right.png')), ButR_X, ButR_Y);
 		
-		buttonLeftActive = new Button(new Bitmap(Assets.getBitmapData('img/radiobutton_fill.png')), ButL_X, ButL_Y) ;
-		buttonRightActive = new Button(new Bitmap(Assets.getBitmapData('img/radiobutton_fill.png')), ButR_X, ButR_Y);
+		buttonLeftActive = new Button(new Bitmap(Assets.getBitmapData('img/radiobutton_fill_left.png')), ButL_X, ButL_Y) ;
+		buttonRightActive = new Button(new Bitmap(Assets.getBitmapData('img/radiobutton_fill_right.png')), ButR_X, ButR_Y);
 		
 		buttonEnd = new Button(new Bitmap(Assets.getBitmapData('img/endsignaturebutton.png')), ButE_X, ButE_Y);
 		addChild(buttonLeftActive);
