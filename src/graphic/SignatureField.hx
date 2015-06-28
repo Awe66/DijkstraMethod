@@ -42,7 +42,7 @@ class SignatureField extends Sprite
 		super();
 		InputTextField = new TextField();
 		InputTextField.type = TextFieldType.INPUT;
-		InputTextField.maxChars = 20;
+		InputTextField.maxChars = 22;
 		InputTextField.border = true;
 		InputTextField.selectable = true;
 		InputTextField.borderColor = 0x000000;

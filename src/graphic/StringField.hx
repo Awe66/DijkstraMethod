@@ -15,10 +15,13 @@ class StringField extends Sprite
 	private var InputTextField:TextField;
 	private var textWidth:Int = 800;
 	private var textHeight:Int = 50;
-
+	private var error:ErrorsField;
+	
+	
 	public function new(symbolFormat:TextFormat) 
 	{
 		super();
+		error = new ErrorsField(300, 300, "print smth");
 		InputTextField = new TextField();
 		InputTextField.type = TextFieldType.INPUT;
 		InputTextField.maxChars = 20;
@@ -43,7 +46,8 @@ class StringField extends Sprite
 	{
 		if (e.keyCode == 13) {
 			if (InputTextField.text.length == 0) {
-				InputTextField.text = 'Please print something';
+				//InputTextField.text = 'Please print something';
+				addChild(error);
 				return;
 			}
 			trace('event');
