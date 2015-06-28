@@ -106,14 +106,16 @@ class SignatureField extends Sprite
 				if (InputTextField.text.length == 0) {
 					InputTextField.text = 'Please print something';
 					return;
-				} else {
-					dispatchEvent(new Event('read me'));
-					priority++;
-					
 				}
+				if ((!rightpressed && !leftpressed)) {
+					//exception
+					return;
+				}
+				dispatchEvent(new Event('read me'));
+				priority++;		
 			}
 		}
-	}	
+	}
 
 	
 	public function drawButtons()
@@ -136,8 +138,7 @@ class SignatureField extends Sprite
 
 	public function readCurrentString():String
 	{
-		InputTextField.text = "";
-		return InputTextField.text;
-		
+			InputTextField.text = "";
+			return InputTextField.text;		
 	}	
 }
