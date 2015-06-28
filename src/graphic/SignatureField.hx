@@ -30,7 +30,7 @@ class SignatureField extends Sprite
 	private var ButR_Y:Int = 100;
 	private var ButE_X:Int = 250;
 	private var ButE_Y:Int = 100;
-	
+	private var error:ErrorsField;
 	public var leftpressed:Bool = false;
 	public var rightpressed:Bool = false;
 	private var endpressed:Bool = false;
@@ -49,6 +49,7 @@ class SignatureField extends Sprite
 		InputTextField.width = textWidth;
 		InputTextField.height = textHeight;
 		InputTextField.defaultTextFormat = symbolFormat;
+		error = new ErrorsField(300, 300, "enter signature");
 		addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 		drawBack();
 		drawButtons();
@@ -104,7 +105,8 @@ class SignatureField extends Sprite
 		if (e.keyCode == 13) {
 			if(!endpressed) {
 				if (InputTextField.text.length == 0) {
-					InputTextField.text = 'Please print something';
+					//InputTextField.text = 'Please print something';
+					addChild(error);
 					return;
 				}
 				if ((!rightpressed && !leftpressed)) {
@@ -120,13 +122,13 @@ class SignatureField extends Sprite
 	
 	public function drawButtons()
 	{
-		buttonLeft = new Button(new Bitmap(Assets.getBitmapData('img/radiobutton_empty_left.png')), ButL_X, ButL_Y) ;
-		buttonRight = new Button(new Bitmap(Assets.getBitmapData('img/radiobutton_empty_right.png')), ButR_X, ButR_Y);
+		buttonLeft = new Button(new Bitmap(Assets.getBitmapData('img/buttons/radiobutton_empty_left.png')), ButL_X, ButL_Y) ;
+		buttonRight = new Button(new Bitmap(Assets.getBitmapData('img/buttons/radiobutton_empty_right.png')), ButR_X, ButR_Y);
 		
-		buttonLeftActive = new Button(new Bitmap(Assets.getBitmapData('img/radiobutton_fill_left.png')), ButL_X, ButL_Y) ;
-		buttonRightActive = new Button(new Bitmap(Assets.getBitmapData('img/radiobutton_fill_right.png')), ButR_X, ButR_Y);
+		buttonLeftActive = new Button(new Bitmap(Assets.getBitmapData('img/buttons/radiobutton_fill_left.png')), ButL_X, ButL_Y) ;
+		buttonRightActive = new Button(new Bitmap(Assets.getBitmapData('img/buttons/radiobutton_fill_right.png')), ButR_X, ButR_Y);
 		
-		buttonEnd = new Button(new Bitmap(Assets.getBitmapData('img/endsignaturebutton.png')), ButE_X, ButE_Y);
+		buttonEnd = new Button(new Bitmap(Assets.getBitmapData('img/buttons/endsignaturebutton.png')), ButE_X, ButE_Y);
 		addChild(buttonLeftActive);
 		addChild(buttonRightActive);
 		buttonLeftActive.setVisible(false);

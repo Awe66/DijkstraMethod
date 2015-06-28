@@ -34,23 +34,35 @@ class ApplicationMain {
 		var types = [];
 		
 		
-		urls.push ("img/endsignaturebutton.png");
+		urls.push ("img/buttons/endsignaturebutton.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("img/radiobutton_empty_left.png");
+		urls.push ("img/buttons/radiobutton_empty_left.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("img/radiobutton_empty_right.png");
+		urls.push ("img/buttons/radiobutton_empty_right.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("img/radiobutton_fill_left.png");
+		urls.push ("img/buttons/radiobutton_fill_left.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("img/radiobutton_fill_right.png");
+		urls.push ("img/buttons/radiobutton_fill_right.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/signature/leftpeak.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/signature/line.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/signature/rightpeak.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		

@@ -13,9 +13,9 @@ import openfl.text.TextFormat;
 class ErrorsField extends Sprite
 {
 	private var InputTextField:TextField;
-	private var textWidth:Int = 300;
+	private var textWidth:Int = 400;
 	private var textHeight:Int = 70;
-	private var symbolFormat:TextFormat = new TextFormat("Colibri", 50, 0x8A8A8A, true);
+	private var symbolFormat:TextFormat = new TextFormat("Colibri", 40, 0x8A312F, true);
 	
 	public function new(errCorX:Int, errCorY:Int, errString:String) 
 	{
@@ -23,9 +23,9 @@ class ErrorsField extends Sprite
 		super();
 		InputTextField = new TextField();
 		InputTextField.type = TextFieldType.INPUT;
-		InputTextField.maxChars = 30;
-		InputTextField.border = true;
-		InputTextField.selectable = true;
+		InputTextField.maxChars = 100;
+		InputTextField.border = false;
+		//InputTextField.selectable = true;
 		InputTextField.borderColor = 0x000000;
 		InputTextField.width = textWidth;
 		InputTextField.height = textHeight;
@@ -43,11 +43,11 @@ class ErrorsField extends Sprite
 	private function onFrame (e:Event){
 	
 	frame++;
-	if (frame>144){ 
+	if (frame>200){ 
 	frame = 0;
 	InputTextField.text = "";
 	removeChild(InputTextField);
-	}
+		}
 	}
 	
 }

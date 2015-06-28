@@ -21,7 +21,7 @@ class StringField extends Sprite
 	public function new(symbolFormat:TextFormat) 
 	{
 		super();
-		error = new ErrorsField(300, 300, "print smth");
+		error = new ErrorsField(300, 300, "enter expression");
 		InputTextField = new TextField();
 		InputTextField.type = TextFieldType.INPUT;
 		InputTextField.maxChars = 20;

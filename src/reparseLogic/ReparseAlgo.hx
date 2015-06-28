@@ -1,5 +1,6 @@
 package reparseLogic;
 
+import graphic.ErrorsField;
 import haxe.CallStack;
 import haxe.ds.GenericStack;
 import openfl.display.Sprite;
@@ -16,6 +17,7 @@ class ReparseAlgo extends Sprite
 	private var mainStack:GenericStack<Symbol>;
 	private var writer:Writer;
 	private var stackLength:Int=0;
+	private var error:ErrorsField;
 	
 	public function new(writer:Writer) 
 	{
@@ -38,7 +40,8 @@ class ReparseAlgo extends Sprite
 			stackLength++;
 		} else {
 			if (stackLength<2) {
-				//exception
+				error = new ErrorsField(300, 300, "invalid action");
+				addChild(error);
 			}else {
 				var firstElement:Symbol = mainStack.pop();
 				var secondElement:Symbol = mainStack.pop();
@@ -71,9 +74,11 @@ class ReparseAlgo extends Sprite
 	public function end() 	
 	{
 		if (stackLength != 1) {
-			//exception
+			error = new ErrorsField(300, 300, "stack isn't empty");
+			addChild(error);
 		} else {
-			//all is good
+			error = new ErrorsField(300, 300, "I FEEL GOOD");
+			addChild(error);
 		}
 	}
 }
