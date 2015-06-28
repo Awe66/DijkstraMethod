@@ -22,10 +22,10 @@ class ErrorsField extends Sprite
 		super();
 		super();
 		InputTextField = new TextField();
-		InputTextField.type = TextFieldType.INPUT;
+		//InputTextField.type = TextFieldType.INPUT;
 		InputTextField.maxChars = 100;
 		InputTextField.border = false;
-		//InputTextField.selectable = true;
+		InputTextField.selectable = false;
 		InputTextField.borderColor = 0x000000;
 		InputTextField.width = textWidth;
 		InputTextField.height = textHeight;

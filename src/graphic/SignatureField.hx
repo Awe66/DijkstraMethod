@@ -45,6 +45,8 @@ class SignatureField extends Sprite
 		InputTextField.maxChars = 22;
 		InputTextField.border = true;
 		InputTextField.selectable = true;
+		InputTextField.x = 5;
+		InputTextField.y = 1;
 		InputTextField.borderColor = 0x000000;
 		InputTextField.width = textWidth;
 		InputTextField.height = textHeight;

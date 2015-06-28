@@ -28,6 +28,8 @@ class StringField extends Sprite
 		InputTextField.border = true;
 		InputTextField.selectable = true;
 		InputTextField.borderColor = 0x000000;
+		InputTextField.x = 5;
+		InputTextField.y = 1;
 		InputTextField.width = textWidth;
 		InputTextField.height = textHeight;
 		InputTextField.defaultTextFormat = symbolFormat;

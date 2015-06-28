@@ -1,5 +1,6 @@
 package;
 
+import graphic.Button;
 import graphic.DrawBackground;
 import graphic.StringField;
 import graphic.SignatureField;
@@ -16,6 +17,8 @@ import src.graphic.Writer;
 import src.MainAlgo;
 import reader.Reader;
 import types.OperatorList;
+import openfl.display.Bitmap;
+import openfl.Assets;
 
 /**
  * ...
@@ -32,12 +35,15 @@ import types.OperatorList;
 	 public var symbolFormat:TextFormat = new TextFormat("Colibri", 50, 0x000000, true);
 	 private var signatureField:SignatureField;
 	 private var operatorList:OperatorList;
+	 private var anewButton:Button = new Button(new Bitmap(Assets.getBitmapData('img/buttons/anewbutton.png')), 1, 1);
 	 
 	 
 	public function new() 
 	{
 		super();
 		readSignature();
+		addChild(anewButton);
+		anewButton.addEventListener('click', onMouseClick);
 		return;
 	}
 	
@@ -48,6 +54,7 @@ import types.OperatorList;
 		reader = new ReaderFromString(stringField.readString(), operatorList);
 		algo = new MainAlgo(reader, writer);
 		stringField.visible = false;
+		background.x = 45;
 		addChild(background);
 		addChild(algo);
 		Lib.current.stage.focus = algo;
@@ -60,6 +67,7 @@ import types.OperatorList;
 		signatureField.removeEventListener('signature', inputStringField);
 		signatureField.removeEventListener('read me', readBlockOfOperators);
 		stringField = new StringField(symbolFormat);
+		stringField.x = 45;
 		addChild(stringField);
 		stringField.addEventListener("read me", onStart);
 	}
@@ -68,6 +76,7 @@ import types.OperatorList;
 	{
 		signatureField = new SignatureField(symbolFormat);
 		operatorList = new OperatorList(signatureField);
+		signatureField.x = 45;
 		addChild(signatureField);
 		Lib.current.stage.focus = signatureField;
 		signatureField.addEventListener('signature', inputStringField);
@@ -79,6 +88,12 @@ import types.OperatorList;
 	private function readBlockOfOperators(e:Event)
 	{
 		operatorList.readNext();
+	}
+	
+
+	private function onMouseClick(e:Event){
+	
+		readSignature();	
 	}
 	
 }

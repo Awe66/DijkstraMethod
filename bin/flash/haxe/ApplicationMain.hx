@@ -34,6 +34,10 @@ class ApplicationMain {
 		var types = [];
 		
 		
+		urls.push ("img/buttons/anewbutton.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("img/buttons/endsignaturebutton.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
