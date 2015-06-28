@@ -60,14 +60,17 @@ class MainAlgo extends Sprite
 	
 	public function nextStep()
 	{
-		if (listOfSymbols.isEmpty() && !salu) {
+		if (listOfSymbols.isEmpty() && !salu) 
+		{
 			algo.end();
 			listOfSymbols = writer.outputList;
 			salu = true;
 			var bufSymbol:Symbol;
 			return;
 		}
-		if(!salu){
+		
+		if (!salu)
+		{
 			currentVariable = listOfSymbols.pop();
 			
 			if (!currentVariable.isOperator()) 
@@ -81,8 +84,11 @@ class MainAlgo extends Sprite
 			currentVariable = listOfSymbols.pop();
 			reparseAlgo.nextStep(currentVariable);	
 		}
-		if (salu && listOfSymbols.isEmpty()) {
+		
+		if (salu && listOfSymbols.isEmpty()) 
+		{
 			reparseAlgo.end();
+			removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 			return;
 		}
 	}

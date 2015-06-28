@@ -1,5 +1,6 @@
 package graphic;
 import openfl.display.Sprite;
+import openfl.events.Event;
 import openfl.text.TextField;
 import openfl.text.TextFieldType;
 import openfl.text.TextFormat;
@@ -33,6 +34,20 @@ class ErrorsField extends Sprite
 		InputTextField.y = errCorY;
 		InputTextField.text = errString;
 		addChild(InputTextField);
+		addEventListener(Event.ENTER_FRAME, onFrame);
+		
+	}
+	
+	private var frame:Int = 0;
+	
+	private function onFrame (e:Event){
+	
+	frame++;
+	if (frame>144){ 
+	frame = 0;
+	InputTextField.text = "";
+	removeChild(InputTextField);
+	}
 	}
 	
 }
