@@ -49,7 +49,6 @@ class SignatureField extends Sprite
 		InputTextField.width = textWidth;
 		InputTextField.height = textHeight;
 		InputTextField.defaultTextFormat = symbolFormat;
-		error = new ErrorsField(300, 300, "enter signature");
 		addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 		drawBack();
 		drawButtons();
@@ -106,11 +105,13 @@ class SignatureField extends Sprite
 			if(!endpressed) {
 				if (InputTextField.text.length == 0) {
 					//InputTextField.text = 'Please print something';
+					error = new ErrorsField(300, 300, "enter signature");
 					addChild(error);
 					return;
 				}
 				if ((!rightpressed && !leftpressed)) {
-					//exception
+					error = new ErrorsField(300, 300, "select associativity");
+					addChild(error);
 					return;
 				}
 				dispatchEvent(new Event('read me'));
