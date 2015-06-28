@@ -17,21 +17,25 @@ class SignatureField extends Sprite
 {
 
 	private var InputTextField:TextField;
-	private static var textWidth:Int = 800;
-	private static  var textHeight:Int = 50; 
-	private var buttonLeft:Bitmap;
-	private var buttonRight:Bitmap;
-	private var buttonEnd:Bitmap;
-	private static var ButL_X:Int = 100;
-	private static var ButL_Y:Int = 100;
-	private static var ButR_X:Int = 150;
-	private static var ButR_Y:Int = 100;
-	private static var ButE_X:Int = 250;
-	private static var ButE_Y:Int = 100;
-	public static var leftpressed:Bool = false;
+	private var textWidth:Int = 800;
+	private var textHeight:Int = 50; 
+	private var buttonLeft:Button;
+	private var buttonLeftActive:Button;
+	private var buttonRight:Button;
+	private var buttonRightActive:Button;
+	private var buttonEnd:Button;
+	private var ButL_X:Int = 100;
+	private var ButL_Y:Int = 100;
+	private var ButR_X:Int = 150;
+	private var ButR_Y:Int = 100;
+	private var ButE_X:Int = 250;
+	private var ButE_Y:Int = 100;
+	
+	public var leftpressed:Bool = false;
 	public var rightpressed:Bool = false;
 	private var endpressed:Bool = false;
-	public static var priority:Int = 0;
+	
+	public var priority:Int = 0;
 	
 	public function new(symbolFormat:TextFormat) 
 	{
@@ -49,35 +53,44 @@ class SignatureField extends Sprite
 		drawBack();
 		drawButtons();
 		addChild(InputTextField);
-		buttonLeft.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDownLeft);
-		buttonRight.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDownRight);
-		buttonEnd.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDownEnd);
+		buttonLeft.addEventListener('click', onMouseDownLeft);
+		buttonRight.addEventListener('click', onMouseDownRight);
+		buttonEnd.addEventListener('click', onMouseDownEnd);
+		
 	}
 	
-	private function onMouseDownLeft(e:Event){
+	private function onMouseDownLeft(e:MouseEvent) 
+	{
+		trace('left');	
 		leftpressed = true;
 		rightpressed = false;
-		buttonLeft = new Bitmap(Assets.getBitmapData('radiobutton_fill.png'));
-		buttonRight = new Bitmap(Assets.getBitmapData('radiobutton_empty.png'));
-		addChild(buttonLeft);
-		addChild(buttonRight);
+		buttonLeftActive.setVisible(true);
+		buttonLeft.setVisible(false);
+		buttonRight.setVisible(true);
+		buttonRightActive.setVisible(false);
 	}
 	
-	private function onMouseDownRight(e:Event) {
+	private function onMouseDownRight(e:MouseEvent) 
+	{
+		trace('right');
 		rightpressed = true;
 		leftpressed = false;
-		buttonLeft = new Bitmap(Assets.getBitmapData('img/radiobutton_empty.png'));
-		buttonRight = new Bitmap(Assets.getBitmapData('img/radiobutton_fill.png'));
-		addChild(buttonLeft);
-		addChild(buttonRight);	
+		
+		buttonLeftActive.setVisible(false);
+		buttonLeft.setVisible(true);
+		buttonRight.setVisible(false);
+		buttonRightActive.setVisible(true);
 	}
 	
-	private function onMouseDownEnd(e:Event){
+	private function onMouseDownEnd(e:MouseEvent) 
+	{
+		trace('signature end');
 		endpressed = true;
 		removeChild(buttonLeft);
 		removeChild(buttonRight);
 		removeChild(buttonEnd);
 		removeChild(InputTextField);
+		dispatchEvent(new Event('signature'));
 	}
 	
 	private function drawBack()
@@ -89,36 +102,41 @@ class SignatureField extends Sprite
 	private function onKeyDown(e:KeyboardEvent) 
 	{
 		if (e.keyCode == 13) {
-			while (endpressed == false) {
-			
+			if(!endpressed) {
 				if (InputTextField.text.length == 0) {
 					InputTextField.text = 'Please print something';
 					return;
 				} else {
-				priority++;
+					dispatchEvent(new Event('read me'));
+					priority++;
+					
 				}
 			}
 		}
 	}	
 
 	
-	public function drawButtons(){
-		buttonLeft = new Bitmap(Assets.getBitmapData('img/radiobutton_empty.png'));
-		buttonRight = new Bitmap(Assets.getBitmapData('img/radiobutton_empty.png'));
-		buttonEnd = new Bitmap(Assets.getBitmapData('img/endsignaturebutton.png'));
-		buttonLeft.x = ButL_X;
-		buttonLeft.y = ButL_Y;
-		buttonRight.x = ButR_X;
-		buttonRight.y = ButR_Y;
-		buttonEnd.x = ButE_X;
-		buttonEnd.y = ButE_Y;
+	public function drawButtons()
+	{
+		buttonLeft = new Button(new Bitmap(Assets.getBitmapData('img/radiobutton_empty.png')), ButL_X, ButL_Y) ;
+		buttonRight = new Button(new Bitmap(Assets.getBitmapData('img/radiobutton_empty.png')), ButR_X, ButR_Y);
+		
+		buttonLeftActive = new Button(new Bitmap(Assets.getBitmapData('img/radiobutton_fill.png')), ButL_X, ButL_Y) ;
+		buttonRightActive = new Button(new Bitmap(Assets.getBitmapData('img/radiobutton_fill.png')), ButR_X, ButR_Y);
+		
+		buttonEnd = new Button(new Bitmap(Assets.getBitmapData('img/endsignaturebutton.png')), ButE_X, ButE_Y);
+		addChild(buttonLeftActive);
+		addChild(buttonRightActive);
+		buttonLeftActive.setVisible(false);
+		buttonRightActive.setVisible(false);
 		addChild(buttonLeft);
 		addChild(buttonRight);
 		addChild(buttonEnd);
-		}
+	}
 
-		public static function readCurrentString():String
+	public function readCurrentString():String
 	{
 		return InputTextField.text;
+		InputTextField.text = "";
 	}	
 }

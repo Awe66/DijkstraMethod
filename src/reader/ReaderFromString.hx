@@ -14,15 +14,14 @@ class ReaderFromString implements Reader
 	var currentString:String;
 	var index:Int;
 	private var symbols:List<Symbol>;
-	var operList:OperatorList;
+	var operatorList:OperatorList;
 	
-	public function new(inputString:String) 
+	public function new(inputString:String, operatorList:OperatorList) 
 	{
 		//2^5^a+4*3>12!2*b#4
-		operList = new OperatorList();
 		currentString = inputString;
 		index = -1;
-		symbols = operList.getOperatorList();
+		symbols = operatorList.getOperatorList();
 	}
 	
 	public function readNext():Symbol
