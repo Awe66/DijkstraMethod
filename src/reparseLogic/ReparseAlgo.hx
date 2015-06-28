@@ -4,6 +4,7 @@ import graphic.ErrorsField;
 import haxe.CallStack;
 import haxe.ds.GenericStack;
 import openfl.display.Sprite;
+import openfl.events.Event;
 import openfl.text.TextFormat;
 import types.Symbol;
 import src.graphic.Writer;
@@ -16,9 +17,9 @@ class ReparseAlgo extends Sprite
 {
 	private var mainStack:GenericStack<Symbol>;
 	private var writer:Writer;
-	private var stackLength:Int=0;
+	private var stackLength:Int=1;
 	private var error:ErrorsField;
-	
+	private var isEnd:Bool = false;
 	public function new(writer:Writer) 
 	{
 		super();
@@ -39,9 +40,12 @@ class ReparseAlgo extends Sprite
 			writer.addToStack(symbol, stackLength);
 			stackLength++;
 		} else {
-			if (stackLength<2) {
+			if (stackLength - 1<2) {
 				error = new ErrorsField(300, 300, "invalid action");
+				dispatchEvent(new Event('end'));
+				isEnd = true;
 				addChild(error);
+				return;
 			}else {
 				var firstElement:Symbol = mainStack.pop();
 				var secondElement:Symbol = mainStack.pop();
@@ -53,14 +57,14 @@ class ReparseAlgo extends Sprite
 				symbol.dontShowTextView();
 				
 				stackLength -= 2;
-				trace(1);
+				
 				
 				writer.add(newSymbol);
 				mainStack.add(newSymbol);
 				addChild(newSymbol);
-				trace(2);
+				
 				writer.addToStack(newSymbol, stackLength);
-				trace(3);
+				
 				stackLength++;
 			}
 		}
@@ -73,12 +77,18 @@ class ReparseAlgo extends Sprite
 	
 	public function end() 	
 	{
-		if (stackLength != 1) {
+		if (isEnd) {
+			return;
+		}
+		isEnd = true;
+		if (stackLength != 2) {
 			error = new ErrorsField(300, 300, "stack isn't empty");
+			dispatchEvent(new Event('end'));
 			addChild(error);
 			return;
 		} else {
 			error = new ErrorsField(300, 300, "I FEEL GOOD");
+			dispatchEvent(new Event('end'));
 			addChild(error);
 		}
 	}

@@ -10,10 +10,12 @@ import openfl.display.Sprite;
 class DrawBackground extends Sprite
 {
 
-	private var stack:Bitmap;
+	private var stackBottom:Bitmap;
+	private var stackWallLeft:Bitmap;
+	private var stackWallRight:Bitmap;
 	private var stackX:Int = 40;
 	private var stackY:Int = 50;
-			
+	private var defaultStackWidth:Float;
 	public function new() 
 	{
 		super();
@@ -26,11 +28,21 @@ class DrawBackground extends Sprite
 		
 	private function drawStack() 
 	{
-		stack = new Bitmap(Assets.getBitmapData('img/stack.png'));
-		stack.scaleY = 0.7;
-		stack.x = stackX;
-		stack.y = stackY;
-		addChild(stack);
+		stackBottom = new Bitmap(Assets.getBitmapData('img/stack/stackbottom.png'));
+		stackWallLeft = new Bitmap(Assets.getBitmapData('img/stack/stackwall.png'));
+		stackWallRight = new Bitmap(Assets.getBitmapData('img/stack/stackwall.png'));
+		stackWallLeft.scaleY = 0.7;
+		stackWallRight.scaleY = 0.7;
+		defaultStackWidth = stackBottom.width;
+		stackBottom.x = stackX;
+		stackBottom.y = stackY+stackWallRight.height;
+		stackWallLeft.x = stackX;
+		stackWallLeft.y = stackY;
+		stackWallRight.x = stackX+stackBottom.width - stackWallRight.width;
+		stackWallRight.y = stackY;
+		addChild(stackBottom);
+		addChild(stackWallLeft);
+		addChild(stackWallRight);
 	}
 	
 	public function getStackX():Int
@@ -45,12 +57,19 @@ class DrawBackground extends Sprite
 	
 	public function getStackHeight():Int
 	{
-		return Std.int(stack.height);
+		return Std.int(stackWallRight.height);
 	}
 	
 	public function getStackWight():Int
 	{
-		return Std.int(stack.width);
+		return Std.int(stackBottom.width);
+	}
+	
+	public function changeStackWidth(newWidth:Int)
+	{
+		stackBottom.scaleX = newWidth / defaultStackWidth;
+		stackWallRight.x = stackX+stackBottom.width- stackWallRight.width;
+		trace(newWidth+" "+ stackBottom.width);
 	}
 	
 	private function drawBack()

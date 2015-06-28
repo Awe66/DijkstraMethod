@@ -63,8 +63,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/signature/line.png", AssetType.IMAGE);
 		className.set ("img/signature/rightpeak.png", __ASSET__img_signature_rightpeak_png);
 		type.set ("img/signature/rightpeak.png", AssetType.IMAGE);
-		className.set ("img/stack.png", __ASSET__img_stack_png);
-		type.set ("img/stack.png", AssetType.IMAGE);
+		className.set ("img/stack/stackbottom.png", __ASSET__img_stack_stackbottom_png);
+		type.set ("img/stack/stackbottom.png", AssetType.IMAGE);
+		className.set ("img/stack/stackwall.png", __ASSET__img_stack_stackwall_png);
+		type.set ("img/stack/stackwall.png", AssetType.IMAGE);
 		
 		
 		#elseif html5
@@ -106,7 +108,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "img/stack.png";
+		id = "img/stack/stackbottom.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/stack/stackwall.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -122,6 +128,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#else
 		
 		#if openfl
+		
 		
 		
 		
@@ -167,8 +174,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("img/signature/rightpeak.png", __ASSET__img_signature_rightpeak_png);
 		type.set ("img/signature/rightpeak.png", AssetType.IMAGE);
 		
-		className.set ("img/stack.png", __ASSET__img_stack_png);
-		type.set ("img/stack.png", AssetType.IMAGE);
+		className.set ("img/stack/stackbottom.png", __ASSET__img_stack_stackbottom_png);
+		type.set ("img/stack/stackbottom.png", AssetType.IMAGE);
+		
+		className.set ("img/stack/stackwall.png", __ASSET__img_stack_stackwall_png);
+		type.set ("img/stack/stackwall.png", AssetType.IMAGE);
 		
 		
 		if (useManifest) {
@@ -779,10 +789,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__img_signature_leftpeak_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_signature_line_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_signature_rightpeak_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__img_stack_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_stack_stackbottom_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_stack_stackwall_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 
 
 #elseif html5
+
 
 
 
@@ -812,7 +824,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/img/signature/leftpeak.png") #if display private #end class __ASSET__img_signature_leftpeak_png extends lime.graphics.Image {}
 @:image("assets/img/signature/line.png") #if display private #end class __ASSET__img_signature_line_png extends lime.graphics.Image {}
 @:image("assets/img/signature/rightpeak.png") #if display private #end class __ASSET__img_signature_rightpeak_png extends lime.graphics.Image {}
-@:image("assets/img/stack.png") #if display private #end class __ASSET__img_stack_png extends lime.graphics.Image {}
+@:image("assets/img/stack/stackbottom.png") #if display private #end class __ASSET__img_stack_stackbottom_png extends lime.graphics.Image {}
+@:image("assets/img/stack/stackwall.png") #if display private #end class __ASSET__img_stack_stackwall_png extends lime.graphics.Image {}
 
 
 

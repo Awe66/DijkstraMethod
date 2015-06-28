@@ -1,6 +1,7 @@
 package src;
 import graphic.WriterToConsole;
 import openfl.display.Sprite;
+import openfl.events.Event;
 import openfl.events.KeyboardEvent;
 import parseLogic.ParseAlgo;
 import reader.ReaderFromString;
@@ -17,6 +18,7 @@ import reader.Reader;
 class MainAlgo extends Sprite
 {
     private var currentVariable:Symbol; //
+	private var isEnd:Bool = false;
 	var reader: Reader;
 	var writer: Writer;
 	var algo: ParseAlgo;
@@ -31,6 +33,7 @@ class MainAlgo extends Sprite
 		algo = new ParseAlgo(writer);
 		reparseAlgo = new ReparseAlgo(writer);
 		addChild(reparseAlgo);
+		reparseAlgo.addEventListener('end', end);
 		listOfSymbols = new List<Symbol>();
 		
 		writer.printSignature();
@@ -49,6 +52,16 @@ class MainAlgo extends Sprite
 		
 	}
 	
+	private function end(e:Event)
+	{
+		if (!isEnd)
+		{
+			while(!listOfSymbols.isEmpty())
+				listOfSymbols.pop();
+			removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+			isEnd = true;
+		}
+	}
 	
 	private function onKeyDown(e:KeyboardEvent) 
 	{
@@ -60,36 +73,37 @@ class MainAlgo extends Sprite
 	
 	public function nextStep()
 	{
-		if (listOfSymbols.isEmpty() && !salu) 
-		{
-			algo.end();
-			listOfSymbols = writer.outputList;
-			salu = true;
-			var bufSymbol:Symbol;
-			return;
-		}
-		
-		if (!salu)
-		{
-			currentVariable = listOfSymbols.pop();
-			
-			if (!currentVariable.isOperator()) 
+		if(!isEnd){
+			if (listOfSymbols.isEmpty() && !salu) 
 			{
-				writer.addToOutput(currentVariable);
-			} else 
-			{
-				algo.nextStep(currentVariable);
+				algo.end();
+				listOfSymbols = writer.outputList;
+				salu = true;
+				var bufSymbol:Symbol;
+				return;
 			}
-		} else {
-			currentVariable = listOfSymbols.pop();
-			reparseAlgo.nextStep(currentVariable);	
-		}
-		
-		if (salu && listOfSymbols.isEmpty()) 
-		{
-			reparseAlgo.end();
-			removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
-			return;
+			
+			if (!salu)
+			{
+				currentVariable = listOfSymbols.pop();
+				
+				if (!currentVariable.isOperator()) 
+				{
+					writer.addToOutput(currentVariable);
+				} else 
+				{
+					algo.nextStep(currentVariable);
+				}
+			} else {
+				currentVariable = listOfSymbols.pop();
+				reparseAlgo.nextStep(currentVariable);	
+			}
+			
+			if (salu && listOfSymbols.isEmpty()) 
+			{
+				reparseAlgo.end();
+				return;
+			}
 		}
 	}
 }

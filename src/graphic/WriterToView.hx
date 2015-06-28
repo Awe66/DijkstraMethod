@@ -24,7 +24,7 @@ class WriterToView implements Writer
 	private var space:Int = 15;
 	
 	private var outputCoorX:UInt = 190;
-	private var outputCoorY:UInt = 300;
+	private var outputCoorY:UInt = 200;
 	
 	private var outputSignatureX:UInt;
 	private var outputSignatureY:UInt;
@@ -67,8 +67,11 @@ class WriterToView implements Writer
 	
 	public function addToStack(symbol:Symbol, num:Int):Bool
 	{
-		var symbolX:Int = Std.int(background.getStackX() + (background.getStackWight() - symbolFormat.size) / 2 + 45);
-		var symbolY:Int = Std.int(background.getStackY() + background.getStackHeight() - num * 40 - symbolFormat.size -10);
+		if (background.getStackWight() < symbol.getTextWidth()+15) {
+			background.changeStackWidth(symbol.getTextWidth()+15);
+		}
+		var symbolX:Int = Std.int(background.getStackX() + (background.getStackWight() - symbol.getTextWidth()) / 2 + 45);
+		var symbolY:Int = Std.int(background.getStackY() + background.getStackHeight() - num * 40 - 40);
 		symbol.changeCoor(symbolX, symbolY);
 		return true;
 	}

@@ -70,7 +70,11 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("img/stack.png");
+		urls.push ("img/stack/stackbottom.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/stack/stackwall.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		

@@ -43,10 +43,12 @@ class ParseAlgo
 			}
 			newOperator.dontShowTextView();
 			headOperator.dontShowTextView();
+			stackLength--;
+			mainStack.pop();
 			return;
 		}
 		
-		while (!mainStack.isEmpty() && ((headOperator.isLeft() && (headOperator.getPriority() >= newOperator.getPriority())) 
+		while (!mainStack.isEmpty() && ((headOperator.isLeft() && (headOperator.getPriority() <= newOperator.getPriority())) 
 				|| (!headOperator.isLeft() && (headOperator.getPriority() > newOperator.getPriority()))) 
 				&& newOperator.getValue()!=")")
 		{

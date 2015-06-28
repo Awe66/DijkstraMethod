@@ -56,7 +56,7 @@ import openfl.Assets;
 		reader = new ReaderFromString(stringField.readString(), operatorList);
 		algo = new MainAlgo(reader, writer);
 		signatureWriter = new SignatureWriter(operatorList, symbolFormat);
-		signatureWriter.x = 400;
+		signatureWriter.x = 500;
 		signatureWriter.y = 400;
 		
 		stringField.visible = false;
