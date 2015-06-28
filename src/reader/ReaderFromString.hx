@@ -27,12 +27,18 @@ class ReaderFromString implements Reader
 	public function readNext():Symbol
 	{
 		var bufString:String = "";
+		
 		if (isOperations(currentString.charAt(index))) {
 			bufString += currentString.charAt(index);
 			index++;
 			return new Symbol(bufString, getPriorityOfCurrentSymbol(bufString), isLeft(bufString));
 		}
+		
 		while (index < currentString.length && !isOperations(currentString.charAt(index))) {
+			if (currentString.charAt(index) == " ") {
+				index++;
+				continue;
+			}
 			bufString += currentString.charAt(index);
 			index++;
 		}

@@ -78,9 +78,11 @@ class WriterToView implements Writer
 	
 	public function addToOutput(symbol:Symbol):Bool
 	{
-		symbol.changeCoor(outputCoorX + outputDelta, outputCoorY);
-		outputDelta += symbol.getTextWidth() + space;
-		outputList.add(symbol);
+		if(symbol.getValue()!= ""){
+			symbol.changeCoor(outputCoorX + outputDelta, outputCoorY);
+			outputDelta += symbol.getTextWidth() + space;
+			outputList.add(symbol);
+		}
 		return true;
 	}
 	
