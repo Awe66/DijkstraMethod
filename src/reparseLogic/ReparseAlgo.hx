@@ -76,6 +76,7 @@ class ReparseAlgo extends Sprite
 		if (stackLength != 1) {
 			error = new ErrorsField(300, 300, "stack isn't empty");
 			addChild(error);
+			return;
 		} else {
 			error = new ErrorsField(300, 300, "I FEEL GOOD");
 			addChild(error);

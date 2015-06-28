@@ -14,7 +14,7 @@ class StringField extends Sprite
 {
 	private var InputTextField:TextField;
 	private var textWidth:Int = 800;
-	private var textHeight:Int = 50;
+	private var textHeight:Int = 55;
 	private var error:ErrorsField;
 	
 	
@@ -48,7 +48,6 @@ class StringField extends Sprite
 	{
 		if (e.keyCode == 13) {
 			if (InputTextField.text.length == 0) {
-				//InputTextField.text = 'Please print something';
 				addChild(error);
 				return;
 			}

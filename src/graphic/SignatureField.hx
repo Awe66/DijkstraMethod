@@ -18,7 +18,7 @@ class SignatureField extends Sprite
 
 	private var InputTextField:TextField;
 	private var textWidth:Int = 800;
-	private var textHeight:Int = 50; 
+	private var textHeight:Int = 55; 
 	private var buttonLeft:Button;
 	private var buttonLeftActive:Button;
 	private var buttonRight:Button;
