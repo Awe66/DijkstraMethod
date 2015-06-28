@@ -85,7 +85,6 @@ import openfl.Assets;
 		operatorList = new OperatorList(signatureField);
 		signatureField.x = 45;
 		addChild(signatureField);
-		Lib.current.stage.focus = signatureField;
 		signatureField.addEventListener('signature', inputStringField);
 		signatureField.addEventListener('read me', readBlockOfOperators);
 	}
