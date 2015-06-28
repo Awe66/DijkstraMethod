@@ -68,11 +68,11 @@ class SignatureWriter extends Sprite
 		line.y = 50;
 		var peak:Bitmap;
 		if (isLeft) {
-			peak = new Bitmap(Assets.getBitmapData('img/signature/leftpeak.png'));
-			peak.x = corX-7;
-		} else {
 			peak = new Bitmap(Assets.getBitmapData('img/signature/rightpeak.png'));
 			peak.x = corX + length - peak.width+7;
+		} else {
+			peak = new Bitmap(Assets.getBitmapData('img/signature/leftpeak.png'));
+			peak.x = corX-7;
 		}
 		peak.y = line.y+2;
 		addChild(line);
