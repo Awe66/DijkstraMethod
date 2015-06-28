@@ -1,6 +1,7 @@
 package;
 
 import graphic.DrawBackground;
+import graphic.SignatureWriter;
 import graphic.StringField;
 import graphic.SignatureField;
 import graphic.WriterToConsole;
@@ -31,6 +32,7 @@ import types.OperatorList;
 	 private var writer:Writer;
 	 public var symbolFormat:TextFormat = new TextFormat("Colibri", 50, 0x000000, true);
 	 private var signatureField:SignatureField;
+	 private var signatureWriter:SignatureWriter;
 	 private var operatorList:OperatorList;
 	 
 	 
@@ -47,10 +49,15 @@ import types.OperatorList;
 		writer = new WriterToView(background, symbolFormat);
 		reader = new ReaderFromString(stringField.readString(), operatorList);
 		algo = new MainAlgo(reader, writer);
+		signatureWriter = new SignatureWriter(operatorList, symbolFormat);
+		signatureWriter.x = 400;
+		signatureWriter.y = 400;
+		
 		stringField.visible = false;
 		addChild(background);
 		addChild(algo);
 		Lib.current.stage.focus = algo;
+		addChild(signatureWriter);
 		algo.start();
 	}
 

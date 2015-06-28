@@ -12,28 +12,27 @@ import openfl.text.TextFormat;
 
 class ErrorsField extends Sprite
 {
-	private var InputTextField:TextField;
+	private var inputTextField:TextField;
 	private var textWidth:Int = 400;
 	private var textHeight:Int = 70;
-	private var symbolFormat:TextFormat = new TextFormat("Colibri", 40, 0x8A312F, true);
+	private var symbolFormat:TextFormat = new TextFormat("Colibri", 40, 0xFF0000, true);
 	
 	public function new(errCorX:Int, errCorY:Int, errString:String) 
 	{
 		super();
 		super();
-		InputTextField = new TextField();
-		InputTextField.type = TextFieldType.INPUT;
-		InputTextField.maxChars = 100;
-		InputTextField.border = false;
-		//InputTextField.selectable = true;
-		InputTextField.borderColor = 0x000000;
-		InputTextField.width = textWidth;
-		InputTextField.height = textHeight;
-		InputTextField.defaultTextFormat = symbolFormat;
-		InputTextField.x = errCorX;
-		InputTextField.y = errCorY;
-		InputTextField.text = errString;
-		addChild(InputTextField);
+		inputTextField = new TextField();
+		inputTextField.maxChars = 100;
+		inputTextField.border = false;
+		inputTextField.selectable = false;
+		inputTextField.borderColor = 0x000000;
+		inputTextField.width = textWidth;
+		inputTextField.height = textHeight;
+		inputTextField.defaultTextFormat = symbolFormat;
+		inputTextField.x = errCorX;
+		inputTextField.y = errCorY;
+		inputTextField.text = errString;
+		addChild(inputTextField);
 		addEventListener(Event.ENTER_FRAME, onFrame);
 		
 	}
@@ -42,11 +41,11 @@ class ErrorsField extends Sprite
 	
 	private function onFrame (e:Event){
 	
-	frame++;
-	if (frame>200){ 
-	frame = 0;
-	InputTextField.text = "";
-	removeChild(InputTextField);
+		frame++;
+		if (frame>200){ 
+			frame = 0;
+			inputTextField.text = "";
+			inputTextField.visible = false;
 		}
 	}
 	
