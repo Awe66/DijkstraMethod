@@ -21,6 +21,7 @@ class ErrorsField extends Sprite
 	{
 		super();
 		super();
+<<<<<<< HEAD
 		inputTextField = new TextField();
 		inputTextField.maxChars = 100;
 		inputTextField.border = false;
@@ -33,6 +34,21 @@ class ErrorsField extends Sprite
 		inputTextField.y = errCorY;
 		inputTextField.text = errString;
 		addChild(inputTextField);
+=======
+		InputTextField = new TextField();
+		//InputTextField.type = TextFieldType.INPUT;
+		InputTextField.maxChars = 100;
+		InputTextField.border = false;
+		InputTextField.selectable = false;
+		InputTextField.borderColor = 0x000000;
+		InputTextField.width = textWidth;
+		InputTextField.height = textHeight;
+		InputTextField.defaultTextFormat = symbolFormat;
+		InputTextField.x = errCorX;
+		InputTextField.y = errCorY;
+		InputTextField.text = errString;
+		addChild(InputTextField);
+>>>>>>> origin/master
 		addEventListener(Event.ENTER_FRAME, onFrame);
 		
 	}

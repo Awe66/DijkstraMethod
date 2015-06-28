@@ -45,6 +45,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		#if flash
 		
+		className.set ("img/buttons/anewbutton.png", __ASSET__img_buttons_anewbutton_png);
+		type.set ("img/buttons/anewbutton.png", AssetType.IMAGE);
 		className.set ("img/buttons/endsignaturebutton.png", __ASSET__img_buttons_endsignaturebutton_png);
 		type.set ("img/buttons/endsignaturebutton.png", AssetType.IMAGE);
 		className.set ("img/buttons/radiobutton_empty_left.png", __ASSET__img_buttons_radiobutton_empty_left_png);
@@ -68,6 +70,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#elseif html5
 		
 		var id;
+		id = "img/buttons/anewbutton.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		id = "img/buttons/endsignaturebutton.png";
 		path.set (id, id);
 		
@@ -127,11 +133,15 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
 		#end
 		
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		
+		className.set ("img/buttons/anewbutton.png", __ASSET__img_buttons_anewbutton_png);
+		type.set ("img/buttons/anewbutton.png", AssetType.IMAGE);
 		
 		className.set ("img/buttons/endsignaturebutton.png", __ASSET__img_buttons_endsignaturebutton_png);
 		type.set ("img/buttons/endsignaturebutton.png", AssetType.IMAGE);
@@ -760,6 +770,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if !display
 #if flash
 
+@:keep @:bind #if display private #end class __ASSET__img_buttons_anewbutton_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_buttons_endsignaturebutton_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_buttons_radiobutton_empty_left_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_buttons_radiobutton_empty_right_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -784,6 +795,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
 #else
 
 
@@ -791,6 +803,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if (windows || mac || linux)
 
 
+@:image("assets/img/buttons/anewbutton.png") #if display private #end class __ASSET__img_buttons_anewbutton_png extends lime.graphics.Image {}
 @:image("assets/img/buttons/endsignaturebutton.png") #if display private #end class __ASSET__img_buttons_endsignaturebutton_png extends lime.graphics.Image {}
 @:image("assets/img/buttons/radiobutton_empty_left.png") #if display private #end class __ASSET__img_buttons_radiobutton_empty_left_png extends lime.graphics.Image {}
 @:image("assets/img/buttons/radiobutton_empty_right.png") #if display private #end class __ASSET__img_buttons_radiobutton_empty_right_png extends lime.graphics.Image {}

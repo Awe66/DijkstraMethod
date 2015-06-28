@@ -67,8 +67,8 @@ class WriterToView implements Writer
 	
 	public function addToStack(symbol:Symbol, num:Int):Bool
 	{
-		var symbolX:Int = Std.int(background.getStackX() + (background.getStackWight() - symbolFormat.size) / 2);
-		var symbolY:Int = Std.int(background.getStackY() + background.getStackHeight() - num * 40 - symbolFormat.size);
+		var symbolX:Int = Std.int(background.getStackX() + (background.getStackWight() - symbolFormat.size) / 2 + 45);
+		var symbolY:Int = Std.int(background.getStackY() + background.getStackHeight() - num * 40 - symbolFormat.size -10);
 		symbol.changeCoor(symbolX, symbolY);
 		return true;
 	}
